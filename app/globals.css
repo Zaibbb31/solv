@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Instrument Serif", Georgia, serif;
+  --font-instrument: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-fraunces: "Fraunces", serif;
+  --font-geist: "Geist", sans-serif;
+  --font-gochi: "Gochi Hand", cursive;
+  --font-inter: "Inter", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-parisienne: "Parisienne", cursive;
+  --font-playfair: "Playfair Display", serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-source-serif: "Source Serif 4", serif;
+  --font-square-peg: "Square Peg", cursive;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
