@@ -194,7 +194,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <span className="text-xs sm:text-sm text-[#E9E8E3]/60 font-normal">
-              © SOLV {new Date().getFullYear()}, All Rights Reserved
+              © SOLV 2026, All Rights Reserved
             </span>
           </div>
         </div>
