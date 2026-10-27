@@ -544,7 +544,7 @@ export default function Home() {
         <div className="h-16 sm:h-20 w-full relative z-20" />
 
         {/* Hero Section Content & Metrics Unified Container */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-2 sm:pt-6 pb-6 sm:pb-12 translate-y-20 sm:translate-y-0">
+        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-2 sm:pt-6 pb-6 sm:pb-12 translate-y-14 sm:translate-y-0">
           {/* Main Content */}
           <main className="max-w-2xl flex flex-col items-start gap-5 sm:gap-7 justify-center mb-8 sm:mb-14 lg:mb-16">
             {/* Animated vertical roll container */}
