@@ -25,13 +25,32 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
 
   useEffect(() => {
     const handleScroll = () => {
-      // Trigger white background when scrolled past 40px
-      setIsScrolled(window.scrollY > 40);
+      // Check if we have scrolled below the hero section
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        setIsScrolled(rect.top <= 80);
+        return;
+      }
+
+      const heroSection = document.getElementById("hero");
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        setIsScrolled(rect.bottom <= 80);
+        return;
+      }
+
+      // Fallback: trigger when scrolled past hero viewport height
+      setIsScrolled(window.scrollY >= window.innerHeight - 80);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   const scrolled = forceScrolled ?? isScrolled;
@@ -40,8 +59,8 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white text-[#071A2E] shadow-sm border-b border-zinc-200/80"
-          : "bg-transparent text-white"
+          ? "bg-[#071A2E]/80 backdrop-blur-md border-b border-white/[0.08] shadow-lg shadow-black/20"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-8xl mx-auto px-6 sm:px-10 lg:px-12">
@@ -58,9 +77,7 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
               width={140}
               height={118}
               priority
-              className={`h-8 sm:h-9 w-auto object-contain transition-all duration-300 ${
-                scrolled ? "brightness-0" : ""
-              }`}
+              className="h-8 sm:h-9 w-auto object-contain"
             />
           </Link>
 
@@ -70,11 +87,7 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
               <Link
                 key={item.label}
                 href={item.href}
-                className={`${
-                  scrolled
-                    ? "text-[#071A2E]/80 hover:text-[#C89949]"
-                    : "text-[#E9E8E3]/90 hover:text-[#C89949]"
-                } text-[15px] font-normal tracking-wide transition-colors duration-200`}
+                className="text-[#E9E8E3]/90 hover:text-[#C89949] text-[15px] font-normal tracking-wide transition-colors duration-200"
               >
                 {item.label}
               </Link>
@@ -86,9 +99,7 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`${
-                scrolled ? "text-[#071A2E]" : "text-[#E9E8E3]"
-              } hover:text-[#C89949] p-2 rounded-md focus:outline-none transition-colors`}
+              className="text-[#E9E8E3] hover:text-[#C89949] p-2 rounded-md focus:outline-none transition-colors"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -104,24 +115,14 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div
-          className={`md:hidden px-6 py-6 transition-all duration-200 ${
-            scrolled
-              ? "bg-white text-[#071A2E] border-t border-zinc-200 shadow-xl"
-              : "border-t border-[#B7873A]/25 bg-[#071A2E]/95 backdrop-blur-md"
-          }`}
-        >
+        <div className="md:hidden px-6 py-6 transition-all duration-200 border-t border-[#B7873A]/25 bg-[#071A2E]/95 backdrop-blur-md shadow-2xl">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`${
-                  scrolled
-                    ? "text-[#071A2E]/90 hover:text-[#C89949]"
-                    : "text-[#E9E8E3] hover:text-[#C89949]"
-                } text-base font-normal tracking-wide py-1.5 transition-colors`}
+                className="text-[#E9E8E3] hover:text-[#C89949] text-base font-normal tracking-wide py-1.5 transition-colors"
               >
                 {item.label}
               </Link>

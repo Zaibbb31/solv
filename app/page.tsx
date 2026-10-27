@@ -26,7 +26,7 @@ interface HeroContent {
 
 const heroModes: Record<"business" | "personal", HeroContent> = {
   business: {
-    headline: "Navigate Complexity. Plan for Continuity.",
+    headline: "One strategy. Complete Resolution",
     description:
       "Strategic advisory for businesses, real-estate stakeholders and enterprises navigating restructuring, financial distress, succession and complex commercial challenges.",
     primaryButtonText: "Explore Business Solutions",
@@ -53,7 +53,10 @@ const metrics = [
 interface ServiceCard {
   number: string;
   title: string;
+  subtitle: string;
   description: string;
+  points: string[];
+  buttonText: string;
   image?: string;
   tag: string;
 }
@@ -61,32 +64,168 @@ interface ServiceCard {
 const serviceCards: ServiceCard[] = [
   {
     number: "01",
-    title: "Growth Strategy",
+    title: "Property & Real Estate Advisory",
+    subtitle: "Make property decisions with greater clarity.",
     description:
-      "Find the biggest growth constraints, prioritize the right opportunities, and build a clearer path to scalable revenue.",
-    tag: "Strategy",
-  },
-  {
-    number: "02",
-    title: "Property & Asset Advisory",
-    description:
-      "Advising developers, lenders, and portfolio owners through stalled developments, debt workouts, and strategic asset positioning.",
+      "Property is often a family's most significant asset. Buying, transferring, registering or protecting it calls for careful attention to documentation, ownership, costs and the applicable regulations.",
+    points: [
+      "Guidance for homebuyers, from shortlisting to registration",
+      "Guidance on applicable regulations, including RERA where relevant",
+      "Acquisition and transaction advisory",
+      "Title and ownership due diligence",
+      "Transfers by sale, gift, release or settlement",
+      "Documentation and registration procedures",
+      "Mutation and post-transfer formalities",
+      "Stamp duty and transfer costs, worked through with your tax adviser",
+      "Early identification of property risks",
+      "Assessment of stalled or distressed real estate projects",
+    ],
+    buttonText: "Explore Property Advisory",
     image: "/service_real_estate.jpg",
     tag: "Real Estate",
   },
   {
-    number: "03",
-    title: "Restructuring & Turnaround",
+    number: "02",
+    title: "Business Restructuring & Insolvency Advisory",
+    subtitle: "When the pressure is on, clarity matters most.",
     description:
-      "Navigating financial distress, operational realignments, and multi-stakeholder negotiations with disciplined execution.",
+      "Financial stress rarely announces itself. Cash flow tightens, lenders become anxious, a project stalls, and every option suddenly feels urgent. The earlier you get an objective view, the more choices you usually have. We help promoters, businesses, investors, homebuyer groups and other stakeholders understand where they stand, test their options and plan a realistic way forward, whether that is a turnaround, a negotiated settlement or a formal process.",
+    points: [
+      "Independent assessment of financial and commercial position",
+      "Restructuring options and business viability reviews",
+      "Support with lender and creditor negotiations, including one-time settlements",
+      "Assessment of stalled and distressed real estate projects",
+      "Guidance for stakeholders in insolvency processes under the IBC",
+      "Coordination with registered insolvency professionals, advocates and valuers",
+    ],
+    buttonText: "Explore Restructuring Advisory",
     tag: "Enterprise",
   },
   {
-    number: "04",
-    title: "Succession & Continuity",
+    number: "03",
+    title: "Wealth, Assets & Inheritance",
+    subtitle: "Know what you own. Protect what matters.",
     description:
-      "Discreet guidance for multi-generational wealth, inheritance transitions, and complex family-property matters.",
+      "Over a lifetime, assets build up in many forms and in many names: property, investments, joint holdings and nominations made years ago. When it is time to plan or to inherit, the gaps show, and they can have lasting consequences for families and future generations. We help you understand your assets and the records behind them, the inheritance questions they raise, and the options available to protect your interests.",
+    points: [
+      "Inheritance guidance under applicable personal laws",
+      "Property and asset transfer documentation",
+      "Asset ownership and documentation reviews",
+      "Family asset and property mapping",
+      "Nomination and joint-holding reviews",
+      "Gift and release arrangements",
+      "Assessment of inherited and jointly held assets",
+      "Identification of potential ownership and succession risks",
+      "Coordination with legal, accounting and tax professionals where required",
+    ],
+    buttonText: "Explore Wealth, Assets & Inheritance",
     tag: "Private Client",
+  },
+  {
+    number: "04",
+    title: "Succession & Legacy Planning",
+    subtitle: "Planning for the Next Chapter.",
+    description:
+      "Succession planning is not only about what happens after someone passes away. It is about the decisions you make during your lifetime: who owns and manages your assets, how they are transferred, and how your wishes are recorded. Whether you are planning the succession of family property, documenting your wishes, transferring assets during your lifetime or balancing the interests of different family members, each decision needs careful thought about the law, your circumstances and the long term. We approach succession and legacy planning with a focus on clarity and continuity. We help you understand what is involved, weigh your options and put the right arrangements in place.",
+    points: [
+      "Succession planning for individuals and families",
+      "Identification of succession risks and potential complications",
+      "Wills and estate planning, coordinated with your advocate",
+      "Intergenerational asset-transfer planning",
+      "Private family trust planning and coordination",
+      "Guardianship planning for dependants",
+      "Digital asset succession planning",
+      "Coordination of property and succession documents",
+      "Periodic review of succession arrangements as circumstances change",
+    ],
+    buttonText: "Explore Succession Planning",
+    tag: "Legacy & Continuity",
+  },
+  {
+    number: "05",
+    title: "Senior Citizen & Retirement Advisory",
+    subtitle: "Security, Dignity and Clarity in the Years That Matter.",
+    description:
+      "Retirement brings new priorities. Decisions about property, family assets, financial responsibilities and future arrangements matter more than ever as you plan for long-term security and peace of mind. For many senior citizens, these concerns go beyond money. They may involve protecting property built over a lifetime, understanding your rights in family assets, transferring property, planning succession, or dealing with situations where family arrangements become complicated. We help senior citizens deal with these matters calmly and confidently. We take time to understand your circumstances, explain the legal and procedural points that apply, and help you choose the options that best protect your interests.",
+    points: [
+      "Property and asset-related advisory for senior citizens",
+      "Guidance on family property and transfer-related concerns",
+      "Rights and remedies under senior citizen legislation, including maintenance",
+      "Assessment of concerns about maintenance, property ownership or family arrangements",
+      "Identification of appropriate avenues for addressing property-related concerns",
+      "Retirement-related property and succession planning",
+      "Property transfer and documentation considerations",
+      "Wills and inheritance planning, coordinated with your advocate",
+    ],
+    buttonText: "Explore Senior Citizen Advisory",
+    tag: "Senior Client",
+  },
+  {
+    number: "06",
+    title: "Family Property & Dispute Resolution",
+    subtitle: "When family interests become complicated.",
+    description:
+      "Property and inheritance matters can become particularly complex when personal relationships intersect with questions of ownership, financial interests and competing expectations. Disagreements may arise over inherited property, jointly owned assets, the validity of property transfers, the distribution of an estate or the rights of different family members. What may begin as a difference in understanding can develop into a dispute involving documentation, succession rights, possession or the interpretation of legal instruments. These situations require a careful assessment of the facts, the interests involved and the legal framework applicable to the matter. We start by understanding the underlying issue and the rights and interests of everyone involved, then identify the most sensible path to resolution, whether that is preventive planning, a constructive conversation or formal dispute resolution.",
+    points: [
+      "Preliminary assessment of family property disputes",
+      "Inheritance and succession-related disagreements",
+      "Assessment of ownership and transfer-related concerns",
+      "Evaluation of potential negotiation and resolution options",
+      "Guidance on appropriate dispute-resolution mechanisms",
+      "Coordination with qualified legal professionals where representation or other regulated legal services are required",
+    ],
+    buttonText: "Explore Dispute Resolution",
+    tag: "Resolution",
+  },
+  {
+    number: "07",
+    title: "Life-Stage Planning",
+    subtitle: "Aligning today's decisions with tomorrow's priorities.",
+    description:
+      "Each stage of life brings different responsibilities and priorities. A young professional may be buying a first home; an established professional may be protecting accumulated assets; someone nearing retirement may be focused on security and succession. These transitions involve decisions about property, asset transfers, inheritance and family responsibilities that affect your long-term interests. Seeing how they connect helps you make better choices and avoid surprises later. We take a structured, forward-looking approach. We help you set priorities, understand the legal and practical implications of major decisions, and bring clarity to choices about property, assets and succession.",
+    points: [
+      "Goal-oriented planning and decision support",
+      "Property and asset planning for each stage of life",
+      "Assessment of major financial and family decisions",
+      "Joining up property, succession and other planning needs",
+      "Identifying situations that require specialist financial, tax, legal or other professional advice",
+    ],
+    buttonText: "Explore Life-Stage Planning",
+    tag: "Strategy",
+  },
+  {
+    number: "08",
+    title: "NRI Property & Asset Advisory",
+    subtitle: "India-based assets. A clearer way to manage the details.",
+    description:
+      "Structured support for NRIs navigating India-based property, ownership documentation, transfers and inheritance questions. For non-resident Indians, property and asset matters in India can involve distance, documentation, coordination and different timelines. A structured view can help clarify what is known, what remains outstanding and which professionals or authorities may need to be involved. Our work begins by understanding the objective, organising available information, identifying open questions and outlining possible next steps. The scope is confirmed for each engagement.",
+    points: [
+      "Property ownership and record-related questions",
+      "Purchase, sale, gift or transfer considerations",
+      "Inheritance and succession-related matters",
+      "Document and information checklists",
+      "Coordination with local professionals",
+      "Identifying questions requiring legal, tax or regulatory advice",
+    ],
+    buttonText: "Explore NRI Advisory",
+    tag: "Global & NRI",
+  },
+  {
+    number: "09",
+    title: "Business & Family Enterprise Succession",
+    subtitle: "Continuity for the business you have built.",
+    description:
+      "A family business carries more than a balance sheet. It carries relationships, expectations and often several generations of effort. Handing it over, whether to the next generation, a partner or a new owner, is one of the most important decisions a founder makes. We help founders and families plan ownership transitions, roles and continuity early, so that both the business and the family come through the change in good shape.",
+    points: [
+      "Ownership transition and continuity planning",
+      "Mapping family-enterprise interests and expectations",
+      "Succession planning for closely held businesses and partnerships",
+      "Separating business and family assets",
+      "Aligning business succession with personal succession plans",
+      "Coordination with advocates, chartered accountants and valuers",
+    ],
+    buttonText: "Explore Family Enterprise Succession",
+    tag: "Enterprise",
   },
 ];
 
@@ -133,6 +272,7 @@ export default function Home() {
   const [mode, setMode] = useState<"business" | "personal">("business");
   const [rollState, setRollState] = useState<"idle" | "exiting" | "entering">("idle");
   const [isRolling, setIsRolling] = useState(false);
+  const [activeCard, setActiveCard] = useState<string | null>(null);
 
   // Scroll detection: fade in content once the blue background reaches the top of viewport
   const [contentFadeIn, setContentFadeIn] = useState(false);
@@ -146,6 +286,7 @@ export default function Home() {
 
   // Scroll detection for Why SOLV dual-column split reveal
   const whySolvSectionRef = useRef<HTMLElement>(null);
+  const whySolvCardsRef = useRef<HTMLDivElement>(null);
   const [whySolvProgress, setWhySolvProgress] = useState(0);
 
   // Scroll detection for Our Approach illuminated winding string
@@ -187,14 +328,16 @@ export default function Home() {
       }
 
       // 3. Why SOLV dual-column split reveal calculation
-      if (whySolvSectionRef.current) {
-        const rect = whySolvSectionRef.current.getBoundingClientRect();
+      const targetCards = whySolvCardsRef.current || whySolvSectionRef.current;
+      if (targetCards) {
+        const rect = targetCards.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // Start splitting when top of section reaches 85% of screen height
-        // Fully separated by the time it reaches 25% of screen height
-        const startY = windowHeight * 0.85;
-        const endY = windowHeight * 0.25;
-        const progress = Math.min(1, Math.max(0, (startY - rect.top) / (startY - endY)));
+        const cardCenter = rect.top + rect.height / 2;
+        // Start revealing with the scroll as the cards enter the lower viewport (95% of screen height)
+        const startY = windowHeight * 0.95;
+        // Fully done when the cards reach the middle of the screen (50% of screen height)
+        const endY = windowHeight * 0.5;
+        const progress = Math.min(1, Math.max(0, (startY - cardCenter) / (startY - endY)));
         setWhySolvProgress(progress);
       }
 
@@ -248,7 +391,7 @@ export default function Home() {
 
   return (
     <div className="relative w-full bg-[#071A2E] text-[#FFFFFF] selection:bg-[#C89949] selection:text-[#071A2E] overflow-x-clip">
-      {/* Sticky Fixed Navbar (turns white with dark text on scroll) */}
+      {/* Sticky Fixed Navbar (backdrop blur on scroll below hero) */}
       <Navbar />
 
       {/* 
@@ -260,7 +403,7 @@ export default function Home() {
       */}
       <div className="relative w-full">
         {/* HERO SECTION (Pinned Sticky at top) */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden z-10 flex flex-col justify-between bg-[#071A2E]">
+        <div id="hero" className="sticky top-0 h-screen w-full overflow-hidden z-10 flex flex-col justify-between bg-[#071A2E]">
         {/* GhostFibers Background with #071A2E Brand Navy */}
         <div className="absolute inset-0 z-0 bg-[#071A2E]">
           <GhostFibers
@@ -315,7 +458,7 @@ export default function Home() {
             {/* Animated vertical roll container */}
             <div className={`flex flex-col items-start gap-6 sm:gap-7 w-full ${rollClasses}`}>
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.04] tracking-tight text-[#FFFFFF] font-heading">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.04] tracking-tight text-[#FFFFFF] font-heading">
                 {current.headline}
               </h1>
 
@@ -412,12 +555,15 @@ export default function Home() {
             <path d="M18 1 L19.3 14.8 L25.8 10.2 L21.2 16.7 L35 18 L21.2 19.3 L25.8 25.8 L19.3 21.2 L18 35 L16.7 21.2 L10.2 25.8 L14.8 19.3 L1 18 L14.8 16.7 L10.2 10.2 L16.7 14.8 Z" />
           </svg>
 
-          {/* Large 3-Liner Editorial Statement in Instrument Serif */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-normal leading-[1.3] sm:leading-[1.35] tracking-tight text-center text-[#E9E8E3]/90 font-heading max-w-4xl mx-auto mb-8 sm:mb-10">
-            Every decision today shapes tomorrow.<br className="hidden sm:inline" />{" "}
-            We bring clarity, perspective, and considered strategy to<br className="hidden sm:inline" />{" "}
-            complex property, restructuring, and succession challenges.
+          {/* Editorial Headline: Big and Bold */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold leading-[1.2] sm:leading-[1.25] tracking-tight text-center text-[#FFFFFF] font-heading max-w-4xl mx-auto mb-6">
+            Every decision today shapes tomorrow.
           </h2>
+
+          {/* Supporting Statement: Justified and Smaller */}
+          <p className="text-base sm:text-lg md:text-xl text-[#E9E8E3]/85 text-justify [text-align-last:center] max-w-2xl mx-auto leading-relaxed font-normal mb-8 sm:mb-10">
+            We bring clarity, perspective, and considered strategy to complex property, restructuring, and succession challenges.
+          </p>
 
           {/* Call to Action */}
           <div className="flex items-center justify-center">
@@ -448,7 +594,7 @@ export default function Home() {
         ref={servicesSectionRef}
         id="services"
         className="relative z-30 w-full bg-[#071A2E] text-white py-16 sm:py-24 lg:py-0 overflow-x-clip"
-        style={{ height: isDesktop ? "300vh" : "auto" }}
+        style={{ height: isDesktop ? "520vh" : "auto" }}
       >
         <div className="relative lg:sticky lg:top-0 h-auto lg:h-screen w-full overflow-hidden flex items-center bg-[#071A2E] z-30 px-6 sm:px-10 lg:px-0">
           <div
@@ -484,46 +630,125 @@ export default function Home() {
             </div>
 
             {/* Service Cards (Single Column Vertical Stack on Mobile, Horizontal Row on Desktop) */}
-            {serviceCards.map((card) => (
-              <div
-                key={card.number}
-                className="w-full lg:w-[440px] h-auto min-h-[340px] sm:min-h-[400px] lg:h-[520px] lg:shrink-0 rounded-2xl border border-[#B7873A]/25 bg-[#0a233d]/70 backdrop-blur-md p-7 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-[#C89949]/50 transition-colors duration-300"
-              >
-                {/* Optional Background Image (Card 2) */}
-                {card.image && (
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 440px"
-                      className="object-cover opacity-35 group-hover:opacity-45 transition-opacity duration-500 group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071A2E] via-[#071A2E]/80 to-transparent" />
-                  </div>
-                )}
+            {serviceCards.map((card) => {
+              const isHovered = activeCard === card.number;
+              return (
+                <div
+                  key={card.number}
+                  onMouseEnter={() => setActiveCard(card.number)}
+                  onMouseLeave={() => setActiveCard((prev) => (prev === card.number ? null : prev))}
+                  onClick={() => setActiveCard((prev) => (prev === card.number ? null : card.number))}
+                  className="w-full lg:w-[460px] h-[540px] sm:h-[580px] lg:h-[600px] lg:shrink-0 rounded-2xl border border-[#B7873A]/25 bg-[#0a233d]/70 backdrop-blur-md p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden group hover:border-[#C89949] transition-all duration-300 shadow-xl cursor-pointer"
+                >
+                  {/* Optional Background Image (Card 1) */}
+                  {card.image && (
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 460px"
+                        className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-500 group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071A2E] via-[#071A2E]/85 to-transparent" />
+                    </div>
+                  )}
 
-                {/* Top Watermark Number & Tag */}
-                <div className="relative z-10 flex items-start justify-between w-full">
-                  <div className="text-5xl sm:text-6xl lg:text-7xl font-normal text-white/20 group-hover:text-[#E0B669]/40 font-heading transition-colors duration-300 select-none">
-                    {card.number}
-                  </div>
-                  <span className="text-[11px] font-sans tracking-widest text-[#B7873A] uppercase px-3 py-1 rounded-full border border-[#B7873A]/25 bg-[#071A2E]/60 backdrop-blur-sm">
-                    {card.tag}
-                  </span>
-                </div>
+                  {/* RESTING STATE: Clean Minimal Editorial View */}
+                  <div className="relative z-10 flex flex-col justify-between h-full">
+                    {/* Top Watermark Number & Tag */}
+                    <div className="flex items-start justify-between w-full">
+                      <div className="text-5xl sm:text-6xl lg:text-7xl font-normal text-white/20 group-hover:text-[#E0B669]/40 font-heading transition-colors duration-300 select-none">
+                        {card.number}
+                      </div>
+                      <span className="text-[11px] font-sans tracking-widest text-[#B7873A] uppercase px-3 py-1 rounded-full border border-[#B7873A]/25 bg-[#071A2E]/80 backdrop-blur-sm">
+                        {card.tag}
+                      </span>
+                    </div>
 
-                {/* Bottom Details */}
-                <div className="relative z-10 flex flex-col items-start gap-3 mt-8 sm:mt-12 lg:mt-0">
-                  <h3 className="text-2xl sm:text-3xl font-normal text-[#FFFFFF] font-heading leading-tight group-hover:text-[#E0B669] transition-colors duration-300">
-                    {card.title}
-                  </h3>
-                  <p className="text-[#E9E8E3]/75 text-sm sm:text-base leading-relaxed">
-                    {card.description}
-                  </p>
+                    {/* Bottom Details */}
+                    <div className="flex flex-col items-start gap-2.5 mt-8 sm:mt-12 lg:mt-0">
+                      <h3 className="text-2xl sm:text-[28px] font-normal text-[#FFFFFF] font-heading leading-tight group-hover:text-[#E0B669] transition-colors duration-300">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm font-medium text-[#E0B669] italic">
+                        {card.subtitle}
+                      </p>
+                      <p className="text-[#E9E8E3]/70 text-xs sm:text-sm leading-relaxed line-clamp-3 mt-1">
+                        {card.description}
+                      </p>
+
+                      <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-[#C89949] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                        <span>Hover to explore scope</span>
+                        <span>→</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* HOVER / ACTIVE REVEAL OVERLAY: Full Respective Content */}
+                  <div
+                    className={`absolute inset-0 z-20 rounded-2xl bg-[#061729]/95 backdrop-blur-xl border-2 border-[#C89949] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ease-out ${
+                      isHovered
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto"
+                    }`}
+                  >
+                    {/* Header */}
+                    <div className="flex flex-col gap-1.5 border-b border-white/10 pb-3.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-mono text-[#C89949] tracking-wider uppercase">
+                          {card.tag} • {card.number}
+                        </span>
+                        <span className="text-[11px] text-[#E0B669] bg-[#B7873A]/15 border border-[#B7873A]/30 px-2 py-0.5 rounded-full">
+                          Advisory Details
+                        </span>
+                      </div>
+                      <h4 className="text-xl sm:text-[22px] font-medium text-white font-heading leading-snug">
+                        {card.title}
+                      </h4>
+                      <p className="text-xs sm:text-[13px] font-medium text-[#E0B669] italic">
+                        {card.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Middle: Scrollable Content with custom scrollbar */}
+                    <div className="flex-1 overflow-y-auto pr-1 my-3 space-y-3 custom-scrollbar text-left">
+                      <p className="text-xs sm:text-[13px] text-[#E9E8E3]/85 leading-relaxed">
+                        {card.description}
+                      </p>
+
+                      <div className="pt-2.5 border-t border-white/10">
+                        <span className="text-[11px] uppercase tracking-wider text-[#C89949] font-medium block mb-2">
+                          Key Advisory Scope & Support:
+                        </span>
+                        <ul className="space-y-1.5">
+                          {card.points.map((pt, i) => (
+                            <li
+                              key={i}
+                              className="flex items-start gap-2 text-xs sm:text-[12.5px] text-[#E9E8E3]/90 leading-tight"
+                            >
+                              <span className="text-[#C89949] shrink-0 mt-0.5">✦</span>
+                              <span>{pt}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Footer: Action Button */}
+                    <div className="pt-3 border-t border-white/10">
+                      <Link
+                        href="#contact"
+                        className="w-full inline-flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-[#C89949] hover:bg-[#E0B669] text-[#071A2E] text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md group/btn"
+                      >
+                        <span>{card.buttonText}</span>
+                        <span className="transition-transform group-hover/btn:translate-x-1">→</span>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -560,10 +785,13 @@ export default function Home() {
           </div>
 
           {/* Interactive Split Columns Container with Center Reveal */}
-          <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-0 relative">
+          <div
+            ref={whySolvCardsRef}
+            className="w-full flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-0 relative"
+          >
             {/* Left Column (2 Cards) - slides left on scroll */}
             <div
-              className="flex flex-col gap-5 sm:gap-6 w-full max-w-md lg:w-[360px] xl:w-[400px] transition-transform duration-300 ease-out will-change-transform z-10"
+              className="flex flex-col gap-5 sm:gap-6 w-full max-w-md lg:w-[360px] xl:w-[400px] transition-transform duration-100 ease-out will-change-transform z-10"
               style={
                 isDesktop
                   ? {
@@ -601,16 +829,17 @@ export default function Home() {
 
             {/* Center Portrait Image Card - revealed as columns separate */}
             <div
-              className="relative shrink-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#B7873A]/30 shadow-2xl transition-all duration-300 ease-out will-change-transform z-20 my-4 lg:my-0"
+              className="relative shrink-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#B7873A]/30 shadow-2xl transition-all duration-100 ease-out will-change-transform z-20 my-4 lg:my-0"
               style={
                 isDesktop
                   ? {
                       width: `${whySolvProgress * 300}px`,
                       height: "440px",
-                      opacity: Math.min(1, whySolvProgress * 1.3),
+                      opacity: whySolvProgress <= 0.01 ? 0 : Math.min(1, whySolvProgress * 1.2),
                       transform: `scale(${0.9 + whySolvProgress * 0.1})`,
                       marginLeft: `${whySolvProgress * 20}px`,
                       marginRight: `${whySolvProgress * 20}px`,
+                      borderWidth: whySolvProgress <= 0.03 ? "0px" : "1px",
                     }
                   : {
                       width: "100%",
@@ -639,7 +868,7 @@ export default function Home() {
 
             {/* Right Column (2 Cards) - slides right on scroll */}
             <div
-              className="flex flex-col gap-5 sm:gap-6 w-full max-w-md lg:w-[360px] xl:w-[400px] transition-transform duration-300 ease-out will-change-transform z-10"
+              className="flex flex-col gap-5 sm:gap-6 w-full max-w-md lg:w-[360px] xl:w-[400px] transition-transform duration-100 ease-out will-change-transform z-10"
               style={
                 isDesktop
                   ? {
@@ -695,8 +924,7 @@ export default function Home() {
           {/* Left Column: Sticky Pinned Intro */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 xl:top-32 flex flex-col items-start gap-6">
             <h2 className="text-4xl sm:text-5xl lg:text-[58px] font-normal leading-[1.08] text-[#FFFFFF] font-heading">
-              Thoughtful Assessment.<br />
-              Informed Decisions.
+              Thoughtful assessment lead to informed decisions.
             </h2>
 
             <p className="text-[#E9E8E3] text-base sm:text-lg leading-relaxed max-w-lg font-normal">
