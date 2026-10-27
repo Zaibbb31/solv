@@ -7,6 +7,7 @@ import Navbar from "@/app/component/nav";
 import Footer from "@/app/component/footer";
 import GhostFibers from "@/components/GhostFibers";
 import GradientWaves from "@/components/GradientWaves";
+import CrystalizedBall from "@/components/CrystalizedBall";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ChevronRightIcon,
@@ -28,9 +29,9 @@ const heroModes: Record<"business" | "personal", HeroContent> = {
   business: {
     headline: "One strategy. Complete Resolution",
     description:
-      "Strategic advisory for businesses, real-estate stakeholders and enterprises navigating restructuring, financial distress, succession and complex commercial challenges.",
+      "SOLV brings clarity to complex business, property and personal matters, helping businesses, individuals and families understand their options and identify a considered way forward.",
     primaryButtonText: "Explore Business Solutions",
-    primaryButtonHref: "#opportunity",
+    primaryButtonHref: "#services",
     secondaryButtonText: "For Individuals & Families",
   },
   personal: {
@@ -38,8 +39,26 @@ const heroModes: Record<"business" | "personal", HeroContent> = {
     description:
       "Considered support for individuals and families navigating property matters, inheritance, succession, asset planning and complex family-property concerns.",
     primaryButtonText: "Explore Personal & Family Solutions",
-    primaryButtonHref: "#opportunity",
+    primaryButtonHref: "#services",
     secondaryButtonText: "For Businesses & Enterprises",
+  },
+};
+
+interface CtaPopupContent {
+  title: string;
+  description: string;
+}
+
+const ctaPopups: Record<"business" | "personal", CtaPopupContent> = {
+  business: {
+    title: "Navigate Complexity. Plan for Continuity.",
+    description:
+      "Strategic advisory for businesses, real-estate stakeholders and enterprises navigating restructuring, financial distress, succession and complex commercial challenges",
+  },
+  personal: {
+    title: "Protect Your Interests. Plan Your Future.",
+    description:
+      "Considered support for individuals and families navigating property matters, inheritance, succession, asset planning and complex family-property concerns",
   },
 };
 
@@ -274,6 +293,79 @@ export default function Home() {
   const [isRolling, setIsRolling] = useState(false);
   const [activeCard, setActiveCard] = useState<string | null>(null);
 
+  // Hero CTA popup state & relocation
+  const [ctaPopupOpen, setCtaPopupOpen] = useState(false);
+  const ctaTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleCtaMouseEnter = () => {
+    if (ctaTimeoutRef.current) clearTimeout(ctaTimeoutRef.current);
+    setCtaPopupOpen(true);
+  };
+
+  const handleCtaMouseLeave = () => {
+    ctaTimeoutRef.current = setTimeout(() => {
+      setCtaPopupOpen(false);
+    }, 250);
+  };
+
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isTouchOrMobile = window.innerWidth < 768 || window.matchMedia("(hover: none)").matches;
+    if (isTouchOrMobile && !ctaPopupOpen) {
+      e.preventDefault();
+      setCtaPopupOpen(true);
+      if (ctaTimeoutRef.current) clearTimeout(ctaTimeoutRef.current);
+      ctaTimeoutRef.current = setTimeout(() => {
+        const servicesSection = document.getElementById("services");
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.location.hash = "#services";
+        }
+        setCtaPopupOpen(false);
+      }, 950);
+      return;
+    }
+
+    e.preventDefault();
+    if (ctaTimeoutRef.current) clearTimeout(ctaTimeoutRef.current);
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.hash = "#services";
+    }
+    setCtaPopupOpen(false);
+  };
+
+  const handlePopupClick = () => {
+    if (ctaTimeoutRef.current) clearTimeout(ctaTimeoutRef.current);
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.hash = "#services";
+    }
+    setCtaPopupOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      if (!ctaPopupOpen) return;
+      const target = e.target as HTMLElement;
+      if (!target.closest(".hero-cta-container")) {
+        setCtaPopupOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutsideClick);
+    window.addEventListener("touchstart", handleOutsideClick);
+    return () => {
+      window.removeEventListener("mousedown", handleOutsideClick);
+      window.removeEventListener("touchstart", handleOutsideClick);
+      if (ctaTimeoutRef.current) clearTimeout(ctaTimeoutRef.current);
+    };
+  }, [ctaPopupOpen]);
+
   // Scroll detection: fade in content once the blue background reaches the top of viewport
   const [contentFadeIn, setContentFadeIn] = useState(false);
   const nextSectionRef = useRef<HTMLElement>(null);
@@ -452,9 +544,9 @@ export default function Home() {
         <div className="h-16 sm:h-20 w-full relative z-20" />
 
         {/* Hero Section Content & Metrics Unified Container */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-4 sm:pt-6 pb-8 sm:pb-12 translate-y-30 sm:translate-y-0">
+        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-2 sm:pt-6 pb-6 sm:pb-12 translate-y-20 sm:translate-y-0">
           {/* Main Content */}
-          <main className="max-w-2xl flex flex-col items-start gap-6 sm:gap-7 justify-center mb-12 sm:mb-14 lg:mb-16">
+          <main className="max-w-2xl flex flex-col items-start gap-5 sm:gap-7 justify-center mb-8 sm:mb-14 lg:mb-16">
             {/* Animated vertical roll container */}
             <div className={`flex flex-col items-start gap-6 sm:gap-7 w-full ${rollClasses}`}>
               {/* Headline */}
@@ -469,18 +561,66 @@ export default function Home() {
 
               {/* Call to Actions */}
               <div className="flex flex-wrap items-center gap-5 sm:gap-7 pt-2">
-                <Link
-                  href={current.primaryButtonHref}
-                  className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group"
+                {/* Main CTA with Popup on Hover / Touch */}
+                <div
+                  className="relative hero-cta-container"
+                  onMouseEnter={handleCtaMouseEnter}
+                  onMouseLeave={handleCtaMouseLeave}
                 >
-                  <span>{current.primaryButtonText}</span>
-                  <HugeiconsIcon
-                    icon={ChevronRightIcon}
-                    size={16}
-                    strokeWidth={2.5}
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </Link>
+                  <Link
+                    href={current.primaryButtonHref}
+                    onClick={handleCtaClick}
+                    className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer"
+                  >
+                    <span>{current.primaryButtonText}</span>
+                    <HugeiconsIcon
+                      icon={ChevronRightIcon}
+                      size={16}
+                      strokeWidth={2.5}
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  </Link>
+
+                  {/* Popup Content Below CTA Overlapping the Metrics */}
+                  <div
+                    onClick={handlePopupClick}
+                    className={`absolute top-full left-0 mt-3 sm:mt-4 w-[calc(100vw-3rem)] sm:w-[440px] md:w-[480px] max-w-lg rounded-2xl bg-[#061729]/95 backdrop-blur-xl border border-[#C89949]/50 shadow-[0_25px_60px_rgba(0,0,0,0.85)] p-5 sm:p-6 z-40 transition-all duration-300 ease-out cursor-pointer group/popup ${
+                      ctaPopupOpen
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    {/* Header badge & relocation cue */}
+                    <div className="flex items-center justify-between mb-2.5">
+                      <span className="text-[11px] font-mono tracking-widest text-[#E0B669] uppercase bg-[#C89949]/15 border border-[#C89949]/30 px-2.5 py-0.5 rounded-full">
+                        {mode === "business" ? "Business Advisory" : "Individual & Family"}
+                      </span>
+                      <span className="text-xs text-[#E9E8E3]/60 flex items-center gap-1 group-hover/popup:text-[#E0B669] transition-colors">
+                        <span>Relocate to Services</span>
+                        <span className="inline-block transition-transform group-hover/popup:translate-x-0.5">→</span>
+                      </span>
+                    </div>
+
+                    {/* Headline */}
+                    <h4 className="text-base sm:text-lg font-medium text-white font-heading leading-snug mb-2">
+                      {ctaPopups[mode].title}
+                    </h4>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-[13px] text-[#E9E8E3]/85 leading-relaxed font-normal">
+                      {ctaPopups[mode].description}
+                    </p>
+
+                    {/* Footer bar */}
+                    <div className="flex items-center justify-between pt-3 mt-3.5 border-t border-white/10 text-xs">
+                      <span className="text-[#C89949] font-medium flex items-center gap-1.5 group-hover/popup:text-[#E0B669]">
+                        <span>Explore all 9 advisory practices</span>
+                        <span>→</span>
+                      </span>
+                      <span className="text-[11px] text-[#E9E8E3]/50">Tap / Click to view</span>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Secondary button toggles vertical roll */}
                 <button
@@ -827,14 +967,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Center Portrait Image Card - revealed as columns separate */}
+            {/* Center CrystalizedBall Card - revealed as columns separate */}
             <div
-              className="relative shrink-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#B7873A]/30 shadow-2xl transition-all duration-100 ease-out will-change-transform z-20 my-4 lg:my-0"
+              className="relative shrink-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-[#B7873A]/30 shadow-2xl transition-all duration-100 ease-out will-change-transform z-20 my-4 lg:my-0 bg-[#071A2E]/70 backdrop-blur-md"
               style={
                 isDesktop
                   ? {
-                      width: `${whySolvProgress * 300}px`,
-                      height: "440px",
+                      width: `${whySolvProgress * 320}px`,
+                      height: "460px",
                       opacity: whySolvProgress <= 0.01 ? 0 : Math.min(1, whySolvProgress * 1.2),
                       transform: `scale(${0.9 + whySolvProgress * 0.1})`,
                       marginLeft: `${whySolvProgress * 20}px`,
@@ -844,22 +984,39 @@ export default function Home() {
                   : {
                       width: "100%",
                       maxWidth: "340px",
-                      height: "360px",
+                      height: "380px",
                       opacity: 1,
                     }
               }
             >
-              <div className="relative w-full h-full min-w-[280px]">
-                <Image
-                  src="/why_solv_portrait.jpg"
-                  alt="Strategic Advisory Leadership"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 340px"
-                  className="object-cover object-top"
+              <div className="relative w-full h-full min-w-[280px] flex items-center justify-center">
+                <CrystalizedBall
+                  preset="plasma"
+                  color="#E0B669"
+                  size={0.7}
+                  crackle={0.85}
+                  fill={0.5}
+                  interactive
+                  hoverStrength={0.7}
+                  strands={6}
+                  flares={0.65}
+                  glow={0.9}
+                  sparks={0.6}
+                  particleCount={15000}
+                  motion="rise"
+                  particleShape="square"
+                  depth={0.6}
+                  sway={0.5}
+                  twinkle={0.5}
+                  haze={0.7}
+                  dustSpeed={1}
+                  speed={1}
+                  intro
+                  paused={false}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071A2E] via-transparent to-transparent opacity-85" />
-                <div className="absolute bottom-5 left-4 right-4 text-center">
-                  <span className="text-[11px] font-sans tracking-widest text-[#E0B669] uppercase px-3 py-1 rounded-full border border-[#B7873A]/30 bg-[#071A2E]/80 backdrop-blur-sm whitespace-nowrap">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071A2E]/90 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-5 left-4 right-4 text-center z-10 pointer-events-none">
+                  <span className="text-[11px] font-sans tracking-widest text-[#E0B669] uppercase px-3 py-1 rounded-full border border-[#B7873A]/30 bg-[#071A2E]/80 backdrop-blur-sm whitespace-nowrap shadow-md">
                     One Strategy. Complete Resolution.
                   </span>
                 </div>
