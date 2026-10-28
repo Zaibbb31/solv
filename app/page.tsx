@@ -764,7 +764,7 @@ export default function Home() {
           {/* Call to Action */}
           <div className="flex items-center justify-center">
             <Link
-              href="#services"
+              href="/services"
               className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-6 py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer"
             >
               <span>Explore Our Services</span>
@@ -811,7 +811,7 @@ export default function Home() {
 
               {/* CTA Button */}
               <Link
-                href="#services"
+                href="/services"
                 className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-6 py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer"
               >
                 <span>Explore Our Services</span>

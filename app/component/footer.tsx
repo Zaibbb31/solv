@@ -77,13 +77,21 @@ export default function Footer() {
           </div>
 
           {/* Right Columns: Navigation Links */}
-          <div className="grid grid-cols-2 gap-12 sm:gap-20 lg:gap-28 w-full lg:w-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-14 lg:gap-20 w-full lg:w-auto">
             {/* Column 1: MAIN */}
             <div className="flex flex-col items-start gap-4 sm:gap-5">
               <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] text-[#E0B669] uppercase font-semibold">
                 MAIN
               </span>
               <ul className="flex flex-col gap-3 sm:gap-3.5">
+                <li>
+                  <Link
+                    href="/"
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Home
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/about"
@@ -111,7 +119,56 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 2: COMPANY */}
+            {/* Column 2: SERVICES */}
+            <div className="flex flex-col items-start gap-4 sm:gap-5">
+              <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] text-[#E0B669] uppercase font-semibold">
+                SERVICES
+              </span>
+              <ul className="flex flex-col gap-3 sm:gap-3.5">
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Property & Real Estate
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Wealth & Inheritance
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Succession & Legacy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Business Restructuring
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    NRI Advisory
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: COMPANY */}
             <div className="flex flex-col items-start gap-4 sm:gap-5">
               <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] text-[#E0B669] uppercase font-semibold">
                 COMPANY
