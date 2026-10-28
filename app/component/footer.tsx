@@ -86,7 +86,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3 sm:gap-3.5">
                 <li>
                   <Link
-                    href="#about"
+                    href="/about"
                     className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
                     About
@@ -94,7 +94,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#services"
+                    href="/#services"
                     className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
                     Services
@@ -102,7 +102,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#insights"
+                    href="/#insights"
                     className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
                     Insights
@@ -119,7 +119,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3 sm:gap-3.5">
                 <li>
                   <Link
-                    href="/contact"
+                    href="/contactus"
                     className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
                     Contact

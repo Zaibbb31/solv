@@ -13,10 +13,10 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About SOLV", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Insights", href: "#insights" },
-  { label: "Contact", href: "#contact" },
+  { label: "About SOLV", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Insights", href: "/#insights" },
+  { label: "Contact", href: "/contactus" },
 ];
 
 export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = {}) {

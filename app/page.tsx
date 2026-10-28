@@ -5,8 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/app/component/nav";
 import Footer from "@/app/component/footer";
+import FAQSection from "@/app/component/faq";
+import CTASection from "@/app/component/cta";
 import GhostFibers from "@/components/GhostFibers";
-import GradientWaves from "@/components/GradientWaves";
 import CrystalizedBall from "@/components/CrystalizedBall";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -63,10 +64,67 @@ const ctaPopups: Record<"business" | "personal", CtaPopupContent> = {
 };
 
 const metrics = [
-  { value: "$1.2B", label: "Capital deployed" },
-  { value: "25+", label: "Years track record" },
-  { value: "150+", label: "Strategic transactions" },
-  { value: "98%", label: "Client retention" },
+  { value: "Partner-Led", label: "Direct senior attention on every matter" },
+  { value: "Cross-Domain", label: "Real estate, debt & succession integrated" },
+  { value: "Total Discretion", label: "Rigorous confidentiality for sensitive assets" },
+  { value: "Objective Strategy", label: "Considered roadmaps with expert coordination" },
+];
+
+const sectorLogos = [
+  {
+    name: "Commercial Real Estate",
+    icon: (props: { className?: string }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={props.className}>
+        <rect x="4" y="2" width="16" height="20" rx="2" />
+        <path d="M9 22V18h6v4" />
+        <path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01" />
+      </svg>
+    ),
+  },
+  {
+    name: "Enterprise Restructuring",
+    icon: (props: { className?: string }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={props.className}>
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+    ),
+  },
+  {
+    name: "Family Property & Succession",
+    icon: (props: { className?: string }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={props.className}>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M12 8v8M8 12h8" />
+      </svg>
+    ),
+  },
+  {
+    name: "Private Capital & Family Offices",
+    icon: (props: { className?: string }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={props.className}>
+        <path d="M6 3h12l4 6-10 12L2 9l4-6z" />
+        <path d="M2 9h20M10 3l2 6 2-6M7.5 9l4.5 12 4.5-12" />
+      </svg>
+    ),
+  },
+  {
+    name: "Insolvency & Debt Resolution",
+    icon: (props: { className?: string }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={props.className}>
+        <path d="M12 3v18M6 8l-3 6h6L6 8zm12 0l-3 6h6l-3-6z" />
+        <path d="M4 3h16" />
+      </svg>
+    ),
+  },
+  {
+    name: "NRI Asset Advisory",
+    icon: (props: { className?: string }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={props.className}>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+      </svg>
+    ),
+  },
 ];
 
 interface ServiceCard {
@@ -644,16 +702,16 @@ export default function Home() {
 
           {/* Metrics / Stats Row */}
           <div className="w-full">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
               {metrics.map((item) => (
                 <div
-                  key={item.label}
-                  className="border-l-2 border-[#B7873A] pl-4 sm:pl-5"
+                  key={item.value}
+                  className="border-l-2 border-[#B7873A] pl-4 sm:pl-5 group"
                 >
-                  <div className="text-3xl sm:text-4xl lg:text-[40px] font-normal text-[#FFFFFF] font-heading leading-tight">
+                  <div className="text-lg sm:text-xl lg:text-[22px] font-normal text-[#FFFFFF] font-heading leading-tight group-hover:text-[#E0B669] transition-colors">
                     {item.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-[#E9E8E3]/80 font-normal tracking-wide mt-1">
+                  <div className="text-xs sm:text-[13px] text-[#E9E8E3]/75 font-normal tracking-wide mt-1.5 leading-snug">
                     {item.label}
                   </div>
                 </div>
@@ -667,8 +725,6 @@ export default function Home() {
         =======================================================
         SECTION DIRECTLY BELOW HERO (Introducing SOLV)
         Slides up over the pinned hero like a curtain.
-        When this background reaches the top, the 3-liner
-        and CTA fade in seamlessly.
         =======================================================
       */}
       <section
@@ -723,6 +779,127 @@ export default function Home() {
         </div>
       </section>
       </div>
+
+      {/* 
+        =======================================================
+        OUR STORY & IMPACT (JUST ABOVE SERVICES SECTION)
+        =======================================================
+      */}
+      <section
+        id="story"
+        className="relative z-20 w-full bg-[#071A2E] text-white py-20 sm:py-28 lg:py-32 px-6 sm:px-10 lg:px-12 border-b border-[#B7873A]/15 overflow-hidden"
+      >
+        <div className="max-w-8xl w-full mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-start">
+            {/* Left Column: Narrative & Story */}
+            <div className="lg:col-span-5 flex flex-col items-start">
+              {/* Eyebrow Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#B7873A]/30 bg-[#0a233d]/80 text-xs font-sans uppercase tracking-[0.2em] text-[#E0B669] mb-6 shadow-sm">
+                <span className="w-4 h-4 rounded-full bg-[#E0B669]/20 text-[#E0B669] flex items-center justify-center text-xs font-bold leading-none">+</span>
+                <span>OUR STORY</span>
+              </div>
+
+              {/* Main Headline */}
+              <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-normal leading-[1.08] tracking-tight text-[#FFFFFF] font-heading mb-6 sm:mb-8">
+                We built the firm we could not hire
+              </h2>
+
+              {/* Body Paragraph */}
+              <p className="text-base sm:text-lg lg:text-[18px] leading-relaxed text-[#E9E8E3]/80 font-normal mb-8 sm:mb-10 max-w-xl">
+                SOLV started after years of watching capable leaders, asset owners and families receive fragmented advice—property in one silo, restructuring in another, and succession planning left unresolved. Important decisions demand more than a narrow view. We built a firm designed to connect the legal, financial, and strategic dots into a single, actionable path forward.
+              </p>
+
+              {/* CTA Button */}
+              <Link
+                href="#services"
+                className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-6 py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer"
+              >
+                <span>Explore Our Services</span>
+                <HugeiconsIcon
+                  icon={ChevronRightIcon}
+                  size={16}
+                  strokeWidth={2.5}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
+              </Link>
+            </div>
+
+            {/* Right Column: 2x2 Metric Cards & Bottom Logos Carousel */}
+            <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6 w-full">
+              {/* 2x2 Grid of Metrics Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                {/* Metric 1 */}
+                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
+                    <span>200</span>
+                    <span className="text-[#E0B669] font-light">+</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
+                    Mandates delivered across commercial real estate, corporate restructuring and high-value succession.
+                  </p>
+                </div>
+
+                {/* Metric 2 */}
+                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
+                    <span>15</span>
+                    <span className="text-[#E0B669] font-light">+</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
+                    Years advising leadership teams, asset owners and families through high-stakes resolutions.
+                  </p>
+                </div>
+
+                {/* Metric 3 */}
+                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
+                    <span>100</span>
+                    <span className="text-[#E0B669] font-light">+</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
+                    Boards, founders and family offices advised across Gurugram, Delhi NCR and key markets.
+                  </p>
+                </div>
+
+                {/* Metric 4 */}
+                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
+                    <span>92</span>
+                    <span className="text-[#E0B669] font-light">%</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
+                    Of clients extend past the initial term, and nine in ten return for subsequent strategic challenges.
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottom Right: Sector Badges & Infinite Logos Carousel */}
+              <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/70 backdrop-blur-md p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 overflow-hidden shadow-lg shadow-black/20">
+                {/* Fixed Sector Title Pill */}
+                <div className="shrink-0 px-4 py-2.5 rounded-xl bg-[#071A2E] border border-[#B7873A]/40 text-xs sm:text-[13px] font-heading font-medium text-[#E0B669] whitespace-nowrap shadow-inner flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#E0B669] animate-pulse" />
+                  <span>Trusted across six sectors</span>
+                </div>
+
+                {/* Marquee Ticker */}
+                <div className="relative w-full overflow-hidden flex items-center [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                  <div className="animate-marquee flex items-center gap-4 sm:gap-6 py-1">
+                    {[...sectorLogos, ...sectorLogos].map((sector, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-[#071A2E]/70 border border-white/10 hover:border-[#C89949]/40 text-white/80 hover:text-[#E0B669] transition-all whitespace-nowrap text-xs sm:text-sm shrink-0 shadow-sm"
+                      >
+                        <sector.icon className="w-4 h-4 text-[#E0B669]" />
+                        <span className="font-medium tracking-wide">{sector.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 
         =======================================================
@@ -878,7 +1055,7 @@ export default function Home() {
                     {/* Footer: Action Button */}
                     <div className="pt-3 border-t border-white/10">
                       <Link
-                        href="#contact"
+                        href="/contactus"
                         className="w-full inline-flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-[#C89949] hover:bg-[#E0B669] text-[#071A2E] text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md group/btn"
                       >
                         <span>{card.buttonText}</span>
@@ -1092,7 +1269,7 @@ export default function Home() {
 
             <div className="pt-2">
               <Link
-                href="#opportunity"
+                href="/contactus"
                 className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-6 py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer"
               >
                 <span>Discuss Your Situation</span>
@@ -1200,80 +1377,17 @@ export default function Home() {
 
       {/* 
         =======================================================
+        FAQ SECTION
+        =======================================================
+      */}
+      <FAQSection />
+
+      {/* 
+        =======================================================
         CALL TO ACTION (CTA) SECTION WITH GRADIENT WAVES
         =======================================================
       */}
-      <section className="relative w-full min-h-[580px] sm:min-h-[640px] py-16 sm:py-20 overflow-hidden bg-[#071A2E] flex items-center justify-center border-t border-[#B7873A]/15">
-        {/* GradientWaves WebGL Background */}
-        <div className="absolute inset-0 z-0">
-          <GradientWaves
-            horizonColor="#071A2E"
-            waveColor="#C89949"
-            crestColor="#E0B669"
-            backgroundColor="#071A2E"
-            speed={0.35}
-            amplitude={2.5}
-            relief={1}
-            lightAngle={120}
-            mouseInteraction
-            swellOnClick
-            lightMode={false}
-            waveScale={0.6}
-            waveRatio={0.9}
-            swell={35}
-            turbulence={20}
-            tilt={64}
-            zoom={1}
-            height={5.5}
-            fogDepth={15}
-            sheen={0.4}
-            brightness={1.1}
-            opacity={1}
-            grain={0.15}
-            quality="medium"
-            intro
-            parallaxStrength={0.5}
-            mouseStrength={0.6}
-            paused={false}
-          />
-        </div>
-
-        {/* Soft Vignettes for Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071A2E] via-transparent to-[#071A2E] pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-black/25 pointer-events-none z-[1]" />
-
-        {/* CTA Content Container */}
-        <div className="relative z-10 max-w-4xl w-full mx-auto px-6 sm:px-10 flex flex-col items-center text-center">
-          {/* Subtitle */}
-          <span className="text-xs sm:text-[13px] font-sans font-medium uppercase tracking-[0.28em] text-[#E0B669] mb-4 sm:mb-5 drop-shadow-sm">
-            GET STARTED TODAY
-          </span>
-
-          {/* Heading */}
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[60px] font-normal leading-[1.1] tracking-tight text-[#FFFFFF] font-heading max-w-3xl mb-5 sm:mb-6">
-            Move forward with a clearer plan
-          </h2>
-
-          {/* Supporting Copy */}
-          <p className="text-[#E9E8E3]/85 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mb-8 sm:mb-10 font-normal">
-            Tell us what you are working through. We will start by understanding your situation and identifying the most useful next step.
-          </p>
-
-          {/* Action Button */}
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 rounded-lg bg-[#C89949] hover:bg-[#E0B669] text-[#071A2E] text-sm sm:text-base font-medium transition-all duration-200 shadow-xl shadow-black/40 group hover:shadow-[#C89949]/20 hover:scale-[1.02]"
-          >
-            <span>Contact SOLV</span>
-            <HugeiconsIcon
-              icon={ChevronRightIcon}
-              size={16}
-              strokeWidth={2.5}
-              className="transition-transform group-hover:translate-x-0.5"
-            />
-          </Link>
-        </div>
-      </section>
+      <CTASection />
 
       {/* Footer */}
       <Footer />
