@@ -102,7 +102,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/#insights"
+                    href="/insights"
                     className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
                     Insights
