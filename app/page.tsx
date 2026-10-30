@@ -604,11 +604,11 @@ export default function Home() {
         {/* Hero Section Content & Metrics Unified Container */}
         <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-2 sm:pt-6 pb-6 sm:pb-12 translate-y-14 sm:translate-y-0">
           {/* Main Content */}
-          <main className="max-w-2xl flex flex-col items-start gap-5 sm:gap-7 justify-center mb-8 sm:mb-14 lg:mb-16">
+          <main className="max-w-2xl lg:max-w-4xl xl:max-w-5xl flex flex-col items-start gap-5 sm:gap-7 justify-center mb-8 sm:mb-14 lg:mb-16">
             {/* Animated vertical roll container */}
             <div className={`flex flex-col items-start gap-6 sm:gap-7 w-full ${rollClasses}`}>
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.04] tracking-tight text-[#FFFFFF] font-heading">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-medium leading-[1.08] tracking-tight text-[#FFFFFF] font-heading lg:whitespace-nowrap">
                 {current.headline}
               </h1>
 
@@ -996,7 +996,7 @@ export default function Home() {
                       </p>
 
                       <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-[#C89949] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
-                        <span>Hover to explore scope</span>
+                        <span>View scope</span>
                         <span>→</span>
                       </div>
                     </div>
@@ -1258,7 +1258,7 @@ export default function Home() {
           {/* Left Column: Sticky Pinned Intro */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 xl:top-32 flex flex-col items-start gap-6">
             <h2 className="text-4xl sm:text-5xl lg:text-[58px] font-normal leading-[1.08] text-[#FFFFFF] font-heading">
-              Thoughtful assessment lead to informed decisions.
+              Thoughtful assessment leads to informed decisions.
             </h2>
 
             <p className="text-[#E9E8E3] text-base sm:text-lg leading-relaxed max-w-lg font-normal">

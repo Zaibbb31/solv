@@ -27,11 +27,11 @@ export default function Footer() {
             {/* Brand Logo */}
             <Link href="/" className="mb-8 inline-block focus:outline-none" aria-label="SOLV Home">
               <Image
-                src="/Logo color.svg"
+                src="/logogoo.svg"
                 alt="SOLV Logo"
-                width={130}
-                height={40}
-                className="h-8 sm:h-9 w-auto object-contain"
+                width={265}
+                height={85}
+                className="h-[60px] sm:h-[68px] lg:h-[76px] w-auto object-contain"
               />
             </Link>
 

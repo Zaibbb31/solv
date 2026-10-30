@@ -72,12 +72,12 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
             aria-label="Home"
           >
             <Image
-              src="/Logo color.svg"
+              src="/logogoo.svg"
               alt="SOLV Logo"
-              width={140}
-              height={118}
+              width={240}
+              height={195}
               priority
-              className="h-8 sm:h-9 w-auto object-contain"
+              className="h-[52px] sm:h-[62px] md:h-[68px] w-auto object-contain"
             />
           </Link>
 
