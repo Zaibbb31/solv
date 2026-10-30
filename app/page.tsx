@@ -599,10 +599,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#071A2E]/85 via-[#071A2E]/40 to-transparent z-[1] pointer-events-none" />
 
         {/* Top Spacer for Navbar */}
-        <div className="h-16 sm:h-20 w-full relative z-20" />
+        <div className="h-14 sm:h-16 w-full relative z-20" />
 
         {/* Hero Section Content & Metrics Unified Container */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-2 sm:pt-6 pb-6 sm:pb-12 translate-y-14 sm:translate-y-0">
+        <div className="relative z-10 flex-1 flex flex-col justify-center max-w-8xl w-full mx-auto px-6 sm:px-10 lg:px-12 pt-0 sm:pt-2 pb-6 sm:pb-12 translate-y-6 sm:-translate-y-4 lg:-translate-y-6">
           {/* Main Content */}
           <main className="max-w-2xl lg:max-w-4xl xl:max-w-5xl flex flex-col items-start gap-5 sm:gap-7 justify-center mb-8 sm:mb-14 lg:mb-16">
             {/* Animated vertical roll container */}
