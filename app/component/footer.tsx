@@ -76,8 +76,8 @@ export default function Footer() {
             </form>
           </div>
 
-          {/* Right Columns: Navigation Links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-14 lg:gap-20 w-full lg:w-auto">
+          {/* Right Columns: Navigation Links & Office Location */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-14 w-full lg:w-auto">
             {/* Column 1: MAIN */}
             <div className="flex flex-col items-start gap-4 sm:gap-5">
               <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] text-[#E0B669] uppercase font-semibold">
@@ -199,6 +199,45 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
+            </div>
+
+            {/* Column 4: OFFICE & HOURS */}
+            <div className="flex flex-col items-start gap-4 sm:gap-5 col-span-2 sm:col-span-1">
+              <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] text-[#E0B669] uppercase font-semibold">
+                OFFICE & HOURS
+              </span>
+              <div className="flex flex-col gap-3 text-xs sm:text-[13px] text-[#E9E8E3]/80 leading-relaxed">
+                <a
+                  href="https://maps.app.goo.gl/Vrrb8ypDnym37JvZ6?g_st=ic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#E0B669] transition-colors group"
+                >
+                  <p className="font-medium text-white group-hover:text-[#E0B669] transition-colors">
+                    Office space 616A, 6th Floor, Block 1 & 5, Tower C, M3M Urbana
+                  </p>
+                  <p className="text-[#E9E8E3]/70">
+                    Golf Course Extension Road, Sector 67, Gurgaon - 122102
+                  </p>
+                </a>
+
+                <div className="pt-2 border-t border-white/10 flex flex-col gap-1.5">
+                  <a
+                    href="mailto:solvpartnersllp@gmail.com"
+                    className="text-xs text-[#E0B669] hover:underline font-mono"
+                  >
+                    solvpartnersllp@gmail.com
+                  </a>
+                  <div className="flex justify-between gap-2 font-mono text-[11.5px] sm:text-xs">
+                    <span className="font-sans text-[#E0B669]">Mon - Fri:</span>
+                    <span>10:00 - 19:00</span>
+                  </div>
+                  <div className="flex justify-between gap-2 font-mono text-[11.5px] sm:text-xs">
+                    <span className="font-sans text-[#E0B669]">Sat & Sun:</span>
+                    <span>11:00 - 17:00</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
