@@ -124,45 +124,69 @@ export default function Footer() {
               <span className="text-[11px] sm:text-xs font-sans tracking-[0.24em] text-[#E0B669] uppercase font-semibold">
                 SERVICES
               </span>
-              <ul className="flex flex-col gap-3 sm:gap-3.5">
+              <ul className="flex flex-col gap-2.5 sm:gap-3 text-xs sm:text-[14px]">
                 <li>
                   <Link
                     href="/services"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
-                    Property & Real Estate
+                    Property &amp; Real Estate Advisory
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/services"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
-                    Wealth & Inheritance
+                    Wealth, Assets &amp; Inheritance
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/services"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
-                    Succession & Legacy
+                    Succession &amp; Legacy Planning
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/services"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
-                    Business Restructuring
+                    Family Property &amp; Dispute Resolution
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/services"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
                   >
-                    NRI Advisory
+                    Senior Citizen &amp; Retirement Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Business Restructuring &amp; Insolvency
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    NRI Property &amp; Asset Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                  >
+                    Business &amp; Family Enterprise Succession
                   </Link>
                 </li>
               </ul>
@@ -228,13 +252,23 @@ export default function Footer() {
                   >
                     solvpartnersllp@gmail.com
                   </a>
+                  <a
+                    href="tel:01244892739"
+                    className="text-xs text-[#E9E8E3]/85 hover:text-[#E0B669] font-mono transition-colors"
+                  >
+                    Landline: 0124-4892739
+                  </a>
                   <div className="flex justify-between gap-2 font-mono text-[11.5px] sm:text-xs">
                     <span className="font-sans text-[#E0B669]">Mon - Fri:</span>
                     <span>10:00 - 19:00</span>
                   </div>
                   <div className="flex justify-between gap-2 font-mono text-[11.5px] sm:text-xs">
-                    <span className="font-sans text-[#E0B669]">Sat & Sun:</span>
+                    <span className="font-sans text-[#E0B669]">Saturday:</span>
                     <span>11:00 - 17:00</span>
+                  </div>
+                  <div className="flex justify-between gap-2 font-mono text-[11.5px] sm:text-xs">
+                    <span className="font-sans text-[#E0B669]">Sunday:</span>
+                    <span className="text-[#E9E8E3]/60 font-sans italic">Closed</span>
                   </div>
                 </div>
               </div>

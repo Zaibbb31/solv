@@ -117,10 +117,10 @@ export default function ContactUsPage() {
                     </p>
                   </div>
                   <a
-                    href="tel:+911244000000"
+                    href="tel:01244892739"
                     className="text-sm font-medium text-white hover:text-[#E0B669] underline underline-offset-4 decoration-[#B7873A]/50 transition-colors"
                   >
-                    +91 124 400 0000
+                    0124-4892739
                   </a>
                 </div>
               </div>
@@ -141,8 +141,12 @@ export default function ContactUsPage() {
                         <span>10:00 - 19:00</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-[#E0B669] font-sans font-medium uppercase text-xs">SAT & SUN</span>
+                        <span className="text-[#E0B669] font-sans font-medium uppercase text-xs">SAT</span>
                         <span>11:00 - 17:00</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-[#E0B669] font-sans font-medium uppercase text-xs">SUN</span>
+                        <span className="text-[#E9E8E3]/60 font-sans italic">Closed</span>
                       </div>
                     </div>
 

@@ -77,7 +77,7 @@ export default function Navbar({ forceScrolled }: { forceScrolled?: boolean } = 
               width={240}
               height={195}
               priority
-              className="h-[52px] sm:h-[62px] md:h-[68px] w-auto object-contain"
+              className="h-[52px] sm:h-[60px] md:h-[54px] lg:h-[55px] w-auto object-contain"
             />
           </Link>
 

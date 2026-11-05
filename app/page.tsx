@@ -28,7 +28,7 @@ interface HeroContent {
 
 const heroModes: Record<"business" | "personal", HeroContent> = {
   business: {
-    headline: "One strategy. Complete Resolution",
+    headline: "One strategy. Complete Solution",
     description:
       "SOLV brings clarity to complex business, property and personal matters, helping businesses, individuals and families understand their options and identify a considered way forward.",
     primaryButtonText: "Explore Business Solutions",
@@ -66,7 +66,7 @@ const ctaPopups: Record<"business" | "personal", CtaPopupContent> = {
 const metrics = [
   { value: "Partner-Led", label: "Direct senior attention on every matter" },
   { value: "Cross-Domain", label: "Real estate, debt & succession integrated" },
-  { value: "Total Discretion", label: "Rigorous confidentiality for sensitive assets" },
+  { value: "Strict Confidentiality ", label: "Rigorous confidentiality for sensitive assets" },
   { value: "Objective Strategy", label: "Considered roadmaps with expert coordination" },
 ];
 
@@ -783,6 +783,9 @@ export default function Home() {
       {/* 
         =======================================================
         OUR STORY & IMPACT (JUST ABOVE SERVICES SECTION)
+        Clean, authoritative layout matching reference:
+        Bold headline with gold highlight, full-width narrative,
+        and horizontal row of metric cards.
         =======================================================
       */}
       <section
@@ -790,110 +793,104 @@ export default function Home() {
         className="relative z-20 w-full bg-[#071A2E] text-white py-20 sm:py-28 lg:py-32 px-6 sm:px-10 lg:px-12 border-b border-[#B7873A]/15 overflow-hidden"
       >
         <div className="max-w-8xl w-full mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-start">
-            {/* Left Column: Narrative & Story */}
-            <div className="lg:col-span-5 flex flex-col items-start">
-              {/* Eyebrow Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#B7873A]/30 bg-[#0a233d]/80 text-xs font-sans uppercase tracking-[0.2em] text-[#E0B669] mb-6 shadow-sm">
-                <span className="w-4 h-4 rounded-full bg-[#E0B669]/20 text-[#E0B669] flex items-center justify-center text-xs font-bold leading-none">+</span>
-                <span>OUR STORY</span>
+          {/* Eyebrow Pill Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#B7873A]/30 bg-[#0a233d]/80 text-xs font-sans uppercase tracking-[0.2em] text-[#E0B669] mb-6 sm:mb-8 shadow-sm">
+            <span className="w-4 h-4 rounded-full bg-[#E0B669]/20 text-[#E0B669] flex items-center justify-center text-xs font-bold leading-none">+</span>
+            <span>OUR STORY</span>
+          </div>
+
+          {/* Editorial Headline matching site typography standard */}
+          <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-normal leading-[1.08] tracking-tight text-[#FFFFFF] font-heading max-w-5xl mb-6 sm:mb-8">
+            We built the firm we could not hire
+          </h2>
+
+          {/* Narrative Paragraph */}
+          <p className="text-base sm:text-lg lg:text-[20px] leading-relaxed text-[#E9E8E3]/85 font-normal max-w-4xl mb-10 sm:mb-14">
+            SOLV started after years of watching capable leaders, asset owners and families receive fragmented advice—property in one silo, restructuring in another, and succession planning left unresolved. Important decisions demand more than a narrow view. We built a firm designed to connect the legal, financial, and strategic dots into a single, actionable path forward.
+          </p>
+
+          {/* Row of Metric Cards (horizontal cards on desktop) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10">
+            {/* Metric 1 */}
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
+                <span>200</span>
+                <span className="text-[#C89949] font-light">+</span>
               </div>
-
-              {/* Main Headline */}
-              <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-normal leading-[1.08] tracking-tight text-[#FFFFFF] font-heading mb-6 sm:mb-8">
-                We built the firm we could not hire
-              </h2>
-
-              {/* Body Paragraph */}
-              <p className="text-base sm:text-lg lg:text-[18px] leading-relaxed text-[#E9E8E3]/80 font-normal mb-8 sm:mb-10 max-w-xl">
-                SOLV started after years of watching capable leaders, asset owners and families receive fragmented advice—property in one silo, restructuring in another, and succession planning left unresolved. Important decisions demand more than a narrow view. We built a firm designed to connect the legal, financial, and strategic dots into a single, actionable path forward.
+              <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
+                MANDATES DELIVERED ACROSS COMMERCIAL REAL ESTATE &amp; RESTRUCTURING
               </p>
-
-              {/* CTA Button */}
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-6 py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer"
-              >
-                <span>Explore Our Services</span>
-                <HugeiconsIcon
-                  icon={ChevronRightIcon}
-                  size={16}
-                  strokeWidth={2.5}
-                  className="transition-transform group-hover:translate-x-0.5"
-                />
-              </Link>
             </div>
 
-            {/* Right Column: 2x2 Metric Cards & Bottom Logos Carousel */}
-            <div className="lg:col-span-7 flex flex-col gap-5 sm:gap-6 w-full">
-              {/* 2x2 Grid of Metrics Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-                {/* Metric 1 */}
-                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
-                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
-                    <span>200</span>
-                    <span className="text-[#E0B669] font-light">+</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
-                    Mandates delivered across commercial real estate, corporate restructuring and high-value succession.
-                  </p>
-                </div>
+            {/* Metric 2 */}
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
+                <span>15</span>
+                <span className="text-[#C89949] font-light">+</span>
+              </div>
+              <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
+                YEARS ADVISING LEADERSHIP TEAMS, ASSET OWNERS &amp; FAMILIES
+              </p>
+            </div>
 
-                {/* Metric 2 */}
-                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
-                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
-                    <span>15</span>
-                    <span className="text-[#E0B669] font-light">+</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
-                    Years advising leadership teams, asset owners and families through high-stakes resolutions.
-                  </p>
-                </div>
+            {/* Metric 3 */}
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
+                <span>100</span>
+                <span className="text-[#C89949] font-light">+</span>
+              </div>
+              <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
+                BOARDS, FOUNDERS &amp; FAMILY ENTERPRISES ADVISED
+              </p>
+            </div>
 
-                {/* Metric 3 */}
-                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
-                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
-                    <span>100</span>
-                    <span className="text-[#E0B669] font-light">+</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
-                    Boards, founders and family offices advised across Gurugram, Delhi NCR and key markets.
-                  </p>
-                </div>
+            {/* Metric 4 */}
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
+                <span>Senior-Led</span>
+              </div>
+              <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
+                DIRECT PRINCIPAL INVOLVEMENT ON EVERY MANDATE
+              </p>
+            </div>
+          </div>
 
-                {/* Metric 4 */}
-                <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
-                  <div className="text-4xl sm:text-5xl lg:text-[54px] font-normal text-white font-heading tracking-tight mb-4 flex items-baseline gap-1">
-                    <span>92</span>
-                    <span className="text-[#E0B669] font-light">%</span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#E9E8E3]/75 leading-relaxed">
-                    Of clients extend past the initial term, and nine in ten return for subsequent strategic challenges.
-                  </p>
-                </div>
+          {/* Bottom Bar: Action Button & Sector Badges Carousel */}
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 pt-6 border-t border-white/10">
+            {/* CTA Button */}
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-[#C89949] hover:bg-[#E0B669] px-6 py-3.5 text-sm sm:text-[15px] font-medium text-[#071A2E] transition-all duration-150 shadow-lg shadow-[#071A2E]/50 group cursor-pointer shrink-0"
+            >
+              <span>Explore Our Services</span>
+              <HugeiconsIcon
+                icon={ChevronRightIcon}
+                size={16}
+                strokeWidth={2.5}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            </Link>
+
+            {/* Sector Badges & Infinite Logos Carousel */}
+            <div className="flex-1 rounded-2xl border border-[#B7873A]/25 bg-[#0a233d]/70 backdrop-blur-md p-3 sm:p-3.5 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 overflow-hidden shadow-lg shadow-black/20">
+              {/* Fixed Sector Title Pill */}
+              <div className="shrink-0 px-3.5 py-2 rounded-xl bg-[#071A2E] border border-[#B7873A]/40 text-xs font-heading font-medium text-[#E0B669] whitespace-nowrap shadow-inner flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#E0B669] animate-pulse" />
+                <span>Trusted across sectors</span>
               </div>
 
-              {/* Bottom Right: Sector Badges & Infinite Logos Carousel */}
-              <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/70 backdrop-blur-md p-3 sm:p-4 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 overflow-hidden shadow-lg shadow-black/20">
-                {/* Fixed Sector Title Pill */}
-                <div className="shrink-0 px-4 py-2.5 rounded-xl bg-[#071A2E] border border-[#B7873A]/40 text-xs sm:text-[13px] font-heading font-medium text-[#E0B669] whitespace-nowrap shadow-inner flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#E0B669] animate-pulse" />
-                  <span>Trusted across six sectors</span>
-                </div>
-
-                {/* Marquee Ticker */}
-                <div className="relative w-full overflow-hidden flex items-center [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-                  <div className="animate-marquee flex items-center gap-4 sm:gap-6 py-1">
-                    {[...sectorLogos, ...sectorLogos].map((sector, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-[#071A2E]/70 border border-white/10 hover:border-[#C89949]/40 text-white/80 hover:text-[#E0B669] transition-all whitespace-nowrap text-xs sm:text-sm shrink-0 shadow-sm"
-                      >
-                        <sector.icon className="w-4 h-4 text-[#E0B669]" />
-                        <span className="font-medium tracking-wide">{sector.name}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Marquee Ticker */}
+              <div className="relative w-full overflow-hidden flex items-center [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                <div className="animate-marquee flex items-center gap-4 sm:gap-6 py-1">
+                  {[...sectorLogos, ...sectorLogos].map((sector, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg bg-[#071A2E]/70 border border-white/10 hover:border-[#C89949]/40 text-white/80 hover:text-[#E0B669] transition-all whitespace-nowrap text-xs sm:text-sm shrink-0 shadow-sm"
+                    >
+                      <sector.icon className="w-4 h-4 text-[#E0B669]" />
+                      <span className="font-medium tracking-wide">{sector.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
