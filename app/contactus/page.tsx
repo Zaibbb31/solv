@@ -13,13 +13,30 @@ import {
   MapsLocation01Icon,
   CheckmarkCircle01Icon,
 } from "@hugeicons/core-free-icons";
+import { User, Mail, Phone, ChevronDown } from "lucide-react";
+
+const SERVICE_OPTIONS = [
+  "Arbitration & Mediation",
+  "Consumer Disputes & Protection",
+  "Conveyancing & Wills",
+  "Corporate & Commercial Advisory",
+  "Employment & Labour Service Law",
+  "Family Law & Matrimonial Disputes",
+  "Insolvency & Bankruptcy (IBC) Matters",
+  "Litigation & Dispute Resolution",
+  "Media, Entertainment & IP",
+  "NGO & Non-Profit Advisory",
+  "Public Interest & Constitutional Matters",
+  "Startup Legal Solutions",
+  "Others",
+];
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    subject: "",
+    serviceNeeded: "",
     message: "",
   });
 
@@ -37,7 +54,7 @@ export default function ContactUsPage() {
         name: "",
         email: "",
         phone: "",
-        subject: "",
+        serviceNeeded: "",
         message: "",
       });
       setTimeout(() => setIsSubmitted(false), 6000);
@@ -221,10 +238,11 @@ export default function ContactUsPage() {
 
                 {/* Interactive Contact Form */}
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5">
-                  {/* Name Field */}
+                  {/* Full Name Field */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="name" className="text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
-                      Name<span className="text-[#E0B669]">*</span>
+                    <label htmlFor="name" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
+                      <User className="w-4 h-4 text-[#E0B669]" />
+                      <span>Full Name<span className="text-[#E0B669]">*</span></span>
                     </label>
                     <input
                       id="name"
@@ -232,15 +250,16 @@ export default function ContactUsPage() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Jane Smith"
+                      placeholder="Enter your full name"
                       className="w-full rounded-xl bg-[#071A2E]/80 border border-white/15 focus:border-[#C89949] px-4 py-3 sm:py-3.5 text-white placeholder-white/35 text-sm sm:text-[15px] outline-none transition-all duration-200 focus:ring-1 focus:ring-[#C89949]/50 shadow-inner"
                     />
                   </div>
 
-                  {/* Email Field */}
+                  {/* Email Address Field */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="email" className="text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
-                      Email<span className="text-[#E0B669]">*</span>
+                    <label htmlFor="email" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
+                      <Mail className="w-4 h-4 text-[#E0B669]" />
+                      <span>Email Address<span className="text-[#E0B669]">*</span></span>
                     </label>
                     <input
                       id="email"
@@ -248,45 +267,58 @@ export default function ContactUsPage() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="jane@example.com"
+                      placeholder="Enter your email address"
                       className="w-full rounded-xl bg-[#071A2E]/80 border border-white/15 focus:border-[#C89949] px-4 py-3 sm:py-3.5 text-white placeholder-white/35 text-sm sm:text-[15px] outline-none transition-all duration-200 focus:ring-1 focus:ring-[#C89949]/50 shadow-inner"
                     />
                   </div>
 
-                  {/* Phone Field */}
+                  {/* Phone Number Field */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="phone" className="text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
-                      Phone
+                    <label htmlFor="phone" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
+                      <Phone className="w-4 h-4 text-[#E0B669]" />
+                      <span>Phone Number<span className="text-[#E0B669]">*</span></span>
                     </label>
                     <input
                       id="phone"
                       type="tel"
+                      required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      placeholder="Enter your phone number"
                       className="w-full rounded-xl bg-[#071A2E]/80 border border-white/15 focus:border-[#C89949] px-4 py-3 sm:py-3.5 text-white placeholder-white/35 text-sm sm:text-[15px] outline-none transition-all duration-200 focus:ring-1 focus:ring-[#C89949]/50 shadow-inner"
                     />
                   </div>
 
-                  {/* Subject Field */}
+                  {/* Service Needed Field */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="subject" className="text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
-                      Subject
+                    <label htmlFor="serviceNeeded" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
+                      <span>Service Needed<span className="text-[#E0B669]">*</span></span>
                     </label>
-                    <input
-                      id="subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="enquiry about..."
-                      className="w-full rounded-xl bg-[#071A2E]/80 border border-white/15 focus:border-[#C89949] px-4 py-3 sm:py-3.5 text-white placeholder-white/35 text-sm sm:text-[15px] outline-none transition-all duration-200 focus:ring-1 focus:ring-[#C89949]/50 shadow-inner"
-                    />
+                    <div className="relative">
+                      <select
+                        id="serviceNeeded"
+                        required
+                        value={formData.serviceNeeded}
+                        onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
+                        className="w-full appearance-none rounded-xl bg-[#071A2E]/80 border border-white/15 focus:border-[#C89949] px-4 py-3 sm:py-3.5 pr-10 text-white placeholder-white/35 text-sm sm:text-[15px] outline-none transition-all duration-200 focus:ring-1 focus:ring-[#C89949]/50 shadow-inner cursor-pointer"
+                      >
+                        <option value="" disabled className="bg-[#071A2E] text-white/50">
+                          Select a service
+                        </option>
+                        {SERVICE_OPTIONS.map((service) => (
+                          <option key={service} value={service} className="bg-[#071A2E] text-white py-1">
+                            {service}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#E0B669] pointer-events-none" />
+                    </div>
                   </div>
 
                   {/* Message Field */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="message" className="text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
-                      Message<span className="text-[#E0B669]">*</span>
+                    <label htmlFor="message" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E9E8E3]/85">
+                      <span>Message<span className="text-[#E0B669]">*</span></span>
                     </label>
                     <textarea
                       id="message"
@@ -294,7 +326,7 @@ export default function ContactUsPage() {
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Message goes here"
+                      placeholder="Describe your legal matter or questions..."
                       className="w-full rounded-xl bg-[#071A2E]/80 border border-white/15 focus:border-[#C89949] px-4 py-3 sm:py-3.5 text-white placeholder-white/35 text-sm sm:text-[15px] outline-none transition-all duration-200 focus:ring-1 focus:ring-[#C89949]/50 shadow-inner resize-y"
                     />
                   </div>
