@@ -28,7 +28,7 @@ interface HeroContent {
 
 const heroModes: Record<"business" | "personal", HeroContent> = {
   business: {
-    headline: "One strategy. Complete Solution",
+    headline: "One strategy. Complete Solution.",
     description:
       "SOLV brings clarity to complex business, property and personal matters, helping businesses, individuals and families understand their options and identify a considered way forward.",
     primaryButtonText: "Explore Business Solutions",
@@ -809,48 +809,36 @@ export default function Home() {
             SOLV started after years of watching capable leaders, asset owners and families receive fragmented advice—property in one silo, restructuring in another, and succession planning left unresolved. Important decisions demand more than a narrow view. We built a firm designed to connect the legal, financial, and strategic dots into a single, actionable path forward.
           </p>
 
-          {/* Row of Metric Cards (horizontal cards on desktop) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10">
+          {/* Row of Metric Cards (horizontal cards matching reference) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
             {/* Metric 1 */}
-            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
-                <span>200</span>
+                <span>30</span>
                 <span className="text-[#C89949] font-light">+</span>
               </div>
               <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
-                MANDATES DELIVERED ACROSS COMMERCIAL REAL ESTATE &amp; RESTRUCTURING
+                YEARS OF PROFESSIONAL EXPERIENCE
               </p>
             </div>
 
             {/* Metric 2 */}
-            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
               <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
-                <span>15</span>
-                <span className="text-[#C89949] font-light">+</span>
+                <span>19</span>
               </div>
               <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
-                YEARS ADVISING LEADERSHIP TEAMS, ASSET OWNERS &amp; FAMILIES
+                SELECTED PROFESSIONAL ASSIGNMENTS
               </p>
             </div>
 
             {/* Metric 3 */}
-            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
-                <span>100</span>
-                <span className="text-[#C89949] font-light">+</span>
-              </div>
-              <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
-                BOARDS, FOUNDERS &amp; FAMILY ENTERPRISES ADVISED
-              </p>
-            </div>
-
-            {/* Metric 4 */}
-            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-7 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading tracking-tight mb-3 flex items-baseline gap-1">
+            <div className="rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between hover:border-[#C89949]/50 transition-all duration-300 group shadow-lg shadow-black/20">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#E0B669] font-heading tracking-tight mb-3 flex items-baseline gap-1">
                 <span>Senior-Led</span>
               </div>
               <p className="text-xs sm:text-[13px] uppercase tracking-wider text-[#E0B669] font-medium leading-snug">
-                DIRECT PRINCIPAL INVOLVEMENT ON EVERY MANDATE
+                DIRECT PRINCIPAL INVOLVEMENT
               </p>
             </div>
           </div>
