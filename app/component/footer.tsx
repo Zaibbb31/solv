@@ -216,15 +216,6 @@ export default function Footer() {
                     Privacy Policy
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/disclaimer"
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200 cursor-pointer"
-                  >
-                    Disclaimer
-                  </Link>
-                </li>
               </ul>
             </div>
 
