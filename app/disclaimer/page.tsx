@@ -1,15 +1,22 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
 import Navbar from "@/app/component/nav";
 import Footer from "@/app/component/footer";
 
-export const metadata: Metadata = {
-  title: "Disclaimer & Regulatory Notice | SOLV",
-  description:
-    "Official regulatory notice and legal disclaimer governing access to the SOLV advisory platform in accordance with Indian professional standards.",
-};
-
 export default function DisclaimerPage() {
+  // Ensure the page always loads at the top
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
+  const handleOpenPopup = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("open-disclaimer-modal"));
+    }
+  };
+
   return (
     <div className="relative w-full bg-[#071A2E] text-[#FFFFFF] selection:bg-[#C89949] selection:text-[#071A2E] overflow-x-clip min-h-screen flex flex-col justify-between">
       {/* Sticky Top Navbar */}
@@ -92,6 +99,13 @@ export default function DisclaimerPage() {
               >
                 Return to Home
               </Link>
+              <button
+                type="button"
+                onClick={handleOpenPopup}
+                className="px-6 py-3 rounded-xl border border-[#B7873A]/40 bg-[#0a233d] hover:bg-[#071A2E] text-[#E0B669] hover:text-white font-medium text-sm transition-all cursor-pointer"
+              >
+                View Popup Notice
+              </button>
               <Link
                 href="/contactus"
                 className="px-6 py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all"
@@ -108,4 +122,3 @@ export default function DisclaimerPage() {
     </div>
   );
 }
-

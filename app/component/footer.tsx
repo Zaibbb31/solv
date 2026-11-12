@@ -201,7 +201,8 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/contactus"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200 cursor-pointer"
                   >
                     Contact
                   </Link>
@@ -209,7 +210,8 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/privacy"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200 cursor-pointer"
                   >
                     Privacy Policy
                   </Link>
@@ -217,7 +219,8 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/disclaimer"
-                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="text-sm sm:text-base text-[#E9E8E3]/75 hover:text-[#E0B669] transition-colors duration-200 cursor-pointer"
                   >
                     Disclaimer
                   </Link>

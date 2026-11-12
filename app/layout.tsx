@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import DisclaimerModal from "@/app/component/disclaimer-modal";
+import ScrollToTop from "@/app/component/scroll-to-top";
 
 export const metadata: Metadata = {
   title: "SOLV | Strategic Direction & Advisory",
@@ -30,6 +31,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans">
+        <ScrollToTop />
         <DisclaimerModal />
         {children}
       </body>
