@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import DisclaimerModal from "@/app/component/disclaimer-modal";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "SOLV | Strategic Direction & Advisory",
   description: "Clarity in complexity. Strategic guidance across assets, business, and succession.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} font-sans h-full antialiased`}
+      className="font-sans h-full antialiased"
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
