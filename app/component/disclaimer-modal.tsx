@@ -14,9 +14,11 @@ export default function DisclaimerModal() {
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Check acceptance status on mount
+  // Check acceptance status on mount and trigger popup after 1.5 - 2 seconds
   useEffect(() => {
     setMounted(true);
+
+    let timer: ReturnType<typeof setTimeout> | null = null;
 
     try {
       // Check if URL has #disclaimer-popup hash for quick preview/testing
@@ -24,13 +26,18 @@ export default function DisclaimerModal() {
       const accepted = sessionStorage.getItem(STORAGE_KEY);
 
       if (!accepted || hasHash) {
-        setIsOpen(true);
+        // Delay popup appearance by 1.8 seconds (1.5 - 2 sec range) after page load
+        timer = setTimeout(() => {
+          setIsOpen(true);
+        }, 1800);
       }
     } catch {
-      setIsOpen(true);
+      timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 1800);
     }
 
-    // Allow re-opening via custom window event anywhere in app
+    // Allow re-opening via custom window event anywhere in app (instant when explicitly requested)
     const handleOpenModal = () => {
       setIsChecked(false);
       setIsOpen(true);
@@ -38,6 +45,7 @@ export default function DisclaimerModal() {
 
     window.addEventListener("open-disclaimer-modal", handleOpenModal);
     return () => {
+      if (timer) clearTimeout(timer);
       window.removeEventListener("open-disclaimer-modal", handleOpenModal);
     };
   }, []);
