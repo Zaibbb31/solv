@@ -6,9 +6,47 @@ import CTASection from "@/app/component/cta";
 import ServicesList from "./ServicesList";
 
 export const metadata: Metadata = {
-  title: "Services Overview | SOLV Strategic Advisory",
+  title: "Advisory Practices & Services | SOLV",
   description:
-    "Every matter has its own facts, priorities and constraints. Our service areas provide a starting point for understanding the kind of support that may be relevant. The scope of each engagement is confirmed after an initial discussion.",
+    "Comprehensive strategic advisory across Property & Real Estate, Wealth & Inheritance, Succession Planning, Family Property Resolution, Business Restructuring, and NRI Asset Advisory.",
+  keywords: [
+    "Property & Real Estate Advisory",
+    "Wealth Assets & Inheritance",
+    "Succession & Legacy Planning",
+    "Family Property & Dispute Resolution",
+    "Senior Citizen & Retirement Advisory",
+    "Business Restructuring & Insolvency",
+    "NRI Property & Asset Advisory",
+    "Business & Family Enterprise Succession",
+    "Legal Advisory Services Gurugram",
+  ],
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Advisory Practices & Services | SOLV",
+    description:
+      "Strategic advisory across real estate, wealth, succession, corporate restructuring, and NRI asset management.",
+    url: "https://solvpartners.in/services",
+    siteName: "SOLV",
+    images: [
+      {
+        url: "/service_real_estate.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SOLV Advisory Services Overview",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advisory Practices & Services | SOLV",
+    description:
+      "Strategic advisory across real estate, wealth, succession, corporate restructuring, and NRI asset management.",
+    images: ["/service_real_estate.jpg"],
+  },
 };
 
 export default function ServicesPage() {

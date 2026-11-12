@@ -10,9 +10,44 @@ import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import { INSIGHT_ARTICLES } from "@/data/insights";
 
 export const metadata: Metadata = {
-  title: "News & Insights | SOLV Strategic Advisory",
+  title: "News & Insights | Thought Leadership & Strategic Analysis",
   description:
-    "Considered strategic perspectives, restructuring benchmarks, property succession frameworks, and asset governance insights from SOLV.",
+    "Considered strategic perspectives, corporate restructuring benchmarks, property succession frameworks, and asset governance insights from SOLV.",
+  keywords: [
+    "SOLV Insights",
+    "Legal Analysis India",
+    "Corporate Restructuring Insights",
+    "Family Succession Frameworks",
+    "Real Estate Advisory Articles",
+    "Business Continuity Thought Leadership",
+  ],
+  alternates: {
+    canonical: "/insights",
+  },
+  openGraph: {
+    title: "News & Insights | SOLV Strategic Advisory",
+    description:
+      "Considered perspectives on commercial real estate, corporate restructuring, generational succession, and asset continuity.",
+    url: "https://solvpartners.in/insights",
+    siteName: "SOLV",
+    images: [
+      {
+        url: "/about_hero_office.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SOLV News & Insights",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "News & Insights | SOLV Strategic Advisory",
+    description:
+      "Considered perspectives on commercial real estate, corporate restructuring, generational succession, and asset continuity.",
+    images: ["/about_hero_office.jpg"],
+  },
 };
 
 export default function InsightsPage() {

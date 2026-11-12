@@ -1,16 +1,39 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/app/component/nav";
 import Footer from "@/app/component/footer";
 
-export default function TermsPage() {
-  // Ensure the page always loads at the top
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, []);
+export const metadata: Metadata = {
+  title: "Terms & Conditions | SOLV",
+  description:
+    "Review the terms and conditions governing access to and use of SOLV's strategic advisory website, intellectual property, disclaimers, and legal jurisdiction.",
+  keywords: [
+    "SOLV Terms and Conditions",
+    "Terms of Service SOLV",
+    "Legal Framework",
+    "No Attorney Client Relationship",
+    "Governing Law Delhi Gurugram",
+  ],
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms & Conditions | SOLV",
+    description:
+      "Review the terms and conditions governing access to and use of SOLV's strategic advisory website.",
+    url: "https://solvpartners.in/terms",
+    siteName: "SOLV",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions | SOLV",
+    description:
+      "Review the terms and conditions governing access to and use of SOLV's strategic advisory website.",
+  },
+};
 
+export default function TermsPage() {
   return (
     <div className="relative w-full bg-[#071A2E] text-[#FFFFFF] selection:bg-[#C89949] selection:text-[#071A2E] overflow-x-clip min-h-screen flex flex-col justify-between">
       {/* Sticky Top Navbar */}

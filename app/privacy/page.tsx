@@ -1,16 +1,39 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/app/component/nav";
 import Footer from "@/app/component/footer";
 
-export default function PrivacyPage() {
-  // Ensure the page always loads at the top
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, []);
+export const metadata: Metadata = {
+  title: "Privacy Policy | SOLV",
+  description:
+    "Review SOLV's Privacy Policy regarding the collection, protection, and handling of personal data under applicable Indian data privacy regulations.",
+  keywords: [
+    "SOLV Privacy Policy",
+    "Data Protection",
+    "Privacy Practices SOLV",
+    "Client Confidentiality",
+    "Indian Data Privacy Compliance",
+  ],
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | SOLV",
+    description:
+      "Review SOLV's Privacy Policy regarding the collection, protection, and handling of personal data.",
+    url: "https://solvpartners.in/privacy",
+    siteName: "SOLV",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | SOLV",
+    description:
+      "Review SOLV's Privacy Policy regarding the collection, protection, and handling of personal data.",
+  },
+};
 
+export default function PrivacyPage() {
   return (
     <div className="relative w-full bg-[#071A2E] text-[#FFFFFF] selection:bg-[#C89949] selection:text-[#071A2E] overflow-x-clip min-h-screen flex flex-col justify-between">
       {/* Sticky Top Navbar */}

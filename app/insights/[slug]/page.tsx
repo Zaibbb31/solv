@@ -32,12 +32,49 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!article) {
     return {
       title: "Article Not Found | SOLV",
+      description: "The requested insight article could not be found.",
     };
   }
+
+  const pageUrl = `https://solvpartners.in/insights/${article.slug}`;
 
   return {
     title: `${article.title} | SOLV Insights`,
     description: article.lead,
+    keywords: [
+      article.category,
+      "SOLV Insights",
+      "Strategic Advisory",
+      "Commercial Advisory",
+      "Corporate Insights India",
+      article.title,
+    ],
+    alternates: {
+      canonical: `/insights/${article.slug}`,
+    },
+    openGraph: {
+      title: `${article.title} | SOLV Insights`,
+      description: article.lead,
+      url: pageUrl,
+      siteName: "SOLV",
+      type: "article",
+      publishedTime: article.date,
+      authors: [article.author.name],
+      images: [
+        {
+          url: article.imageSrc,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | SOLV Insights`,
+      description: article.lead,
+      images: [article.imageSrc],
+    },
   };
 }
 

@@ -15,9 +15,44 @@ import {
 } from "@hugeicons/core-free-icons";
 
 export const metadata: Metadata = {
-  title: "About SOLV | A Considered Approach to Complex Decisions",
+  title: "About Us | A Considered Approach to Complex Decisions",
   description:
     "SOLV was founded on a simple idea: important decisions deserve more than a narrow or fragmented view. Strategic guidance across property, assets, succession, and business challenges.",
+  keywords: [
+    "About SOLV",
+    "Strategic Advisory Firm",
+    "Leadership Team SOLV",
+    "Multidisciplinary Advisory Gurugram",
+    "Business Restructuring Advisors",
+    "Family Asset Planning Firm",
+  ],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About SOLV | A Considered Approach to Complex Decisions",
+    description:
+      "SOLV brings a multidisciplinary perspective to complex property, business, and succession challenges.",
+    url: "https://solvpartners.in/about",
+    siteName: "SOLV",
+    images: [
+      {
+        url: "/about_hero_office.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About SOLV Strategic Advisory",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About SOLV | A Considered Approach to Complex Decisions",
+    description:
+      "SOLV brings a multidisciplinary perspective to complex property, business, and succession challenges.",
+    images: ["/about_hero_office.jpg"],
+  },
 };
 
 export default function AboutPage() {

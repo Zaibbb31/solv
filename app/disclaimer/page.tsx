@@ -1,22 +1,40 @@
-"use client";
-
-import { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/app/component/nav";
 import Footer from "@/app/component/footer";
+import OpenPopupButton from "./open-popup-button";
+
+export const metadata: Metadata = {
+  title: "Regulatory Notice & Disclaimer | SOLV",
+  description:
+    "Important regulatory notices, legal disclaimers, and professional standards governing access to and use of the SOLV strategic advisory website.",
+  keywords: [
+    "Regulatory Notice",
+    "Legal Disclaimer",
+    "Bar Council Rules Compliance",
+    "Terms of Website Access",
+    "SOLV Advisory Disclaimer",
+  ],
+  alternates: {
+    canonical: "/disclaimer",
+  },
+  openGraph: {
+    title: "Regulatory Notice & Disclaimer | SOLV",
+    description:
+      "Important regulatory notices and professional standards governing access to SOLV's website.",
+    url: "https://solvpartners.in/disclaimer",
+    siteName: "SOLV",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Regulatory Notice & Disclaimer | SOLV",
+    description:
+      "Important regulatory notices and professional standards governing access to SOLV's website.",
+  },
+};
 
 export default function DisclaimerPage() {
-  // Ensure the page always loads at the top
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, []);
-
-  const handleOpenPopup = () => {
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("open-disclaimer-modal"));
-    }
-  };
-
   return (
     <div className="relative w-full bg-[#071A2E] text-[#FFFFFF] selection:bg-[#C89949] selection:text-[#071A2E] overflow-x-clip min-h-screen flex flex-col justify-between">
       {/* Sticky Top Navbar */}
@@ -112,13 +130,7 @@ export default function DisclaimerPage() {
               >
                 Return to Home
               </Link>
-              <button
-                type="button"
-                onClick={handleOpenPopup}
-                className="px-6 py-3 rounded-xl border border-[#B7873A]/40 bg-[#0a233d] hover:bg-[#071A2E] text-[#E0B669] hover:text-white font-medium text-sm transition-all cursor-pointer"
-              >
-                View Popup Notice
-              </button>
+              <OpenPopupButton />
               <Link
                 href="/contactus"
                 className="px-6 py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all"
