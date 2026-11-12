@@ -90,6 +90,19 @@ export default function DisclaimerPage() {
             <div className="pt-6 border-t border-white/10 text-xs sm:text-sm text-white/70 italic">
               By clicking <span className="text-[#E0B669] font-semibold">“I AGREE &amp; ENTER”</span> on the opening prompt, you acknowledge that you have read, understood, and consented to this notice.
             </div>
+          </div>
+
+          {/* Suggested General Disclaimer Section */}
+          <div className="mt-8 rounded-2xl sm:rounded-3xl border border-[#B7873A]/25 bg-[#0a233d]/60 backdrop-blur-md p-6 sm:p-10 lg:p-12 shadow-2xl shadow-black/40 text-sm sm:text-base text-[#E9E8E3]/85 leading-relaxed space-y-4">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E0B669]" />
+              <h2 className="text-xl sm:text-2xl font-heading font-normal text-white">
+                General Disclaimer
+              </h2>
+            </div>
+            <p className="text-[#E9E8E3]/90 leading-relaxed">
+              The information on this website is provided for general informational purposes only and should not be treated as legal, tax, investment, accounting or other professional advice. The content may not reflect the latest legal or regulatory developments and may not apply to your specific circumstances. No professional relationship is created merely by accessing this website or submitting an enquiry. Any engagement is subject to a separate written agreement defining the scope, responsibilities, fees and applicable terms. Where specialist or regulated services are required, they should be provided by appropriately qualified professionals. SOLV does not guarantee outcomes.
+            </p>
 
             {/* Actions */}
             <div className="pt-6 border-t border-white/10 flex flex-wrap items-center gap-4">

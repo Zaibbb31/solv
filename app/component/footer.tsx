@@ -279,8 +279,18 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* General Disclaimer Strip */}
+        <div className="w-full border-t border-white/10 pt-6 pb-6 text-[11px] sm:text-xs text-[#E9E8E3]/60 leading-relaxed">
+          <p className="font-sans font-medium text-[#E0B669]/90 mb-1.5 uppercase tracking-wider text-[10.5px]">
+            General Disclaimer
+          </p>
+          <p>
+            The information on this website is provided for general informational purposes only and should not be treated as legal, tax, investment, accounting or other professional advice. The content may not reflect the latest legal or regulatory developments and may not apply to your specific circumstances. No professional relationship is created merely by accessing this website or submitting an enquiry. Any engagement is subject to a separate written agreement defining the scope, responsibilities, fees and applicable terms. Where specialist or regulated services are required, they should be provided by appropriately qualified professionals. SOLV does not guarantee outcomes.
+          </p>
+        </div>
+
         {/* Bottom Bar Divider */}
-        <div className="w-full border-t border-white/10 pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="w-full border-t border-white/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Social Icons & Copyright */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             {/* Social Icons */}
