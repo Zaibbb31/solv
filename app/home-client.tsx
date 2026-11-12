@@ -176,6 +176,8 @@ const serviceCards: ServiceCard[] = [
       "Coordination with registered insolvency professionals, advocates and valuers",
     ],
     buttonText: "Explore Restructuring Advisory",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
     tag: "Enterprise",
   },
   {
@@ -196,6 +198,8 @@ const serviceCards: ServiceCard[] = [
       "Coordination with legal, accounting and tax professionals where required",
     ],
     buttonText: "Explore Wealth, Assets & Inheritance",
+    image:
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80",
     tag: "Private Client",
   },
   {
@@ -216,6 +220,8 @@ const serviceCards: ServiceCard[] = [
       "Periodic review of succession arrangements as circumstances change",
     ],
     buttonText: "Explore Succession Planning",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80",
     tag: "Legacy & Continuity",
   },
   {
@@ -235,6 +241,8 @@ const serviceCards: ServiceCard[] = [
       "Wills and inheritance planning, coordinated with your advocate",
     ],
     buttonText: "Explore Senior Citizen Advisory",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80",
     tag: "Senior Client",
   },
   {
@@ -252,6 +260,8 @@ const serviceCards: ServiceCard[] = [
       "Coordination with qualified legal professionals where representation or other regulated legal services are required",
     ],
     buttonText: "Explore Dispute Resolution",
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=80",
     tag: "Resolution",
   },
   {
@@ -268,6 +278,8 @@ const serviceCards: ServiceCard[] = [
       "Identifying situations that require specialist financial, tax, legal or other professional advice",
     ],
     buttonText: "Explore Life-Stage Planning",
+    image:
+      "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80",
     tag: "Strategy",
   },
   {
@@ -285,6 +297,8 @@ const serviceCards: ServiceCard[] = [
       "Identifying questions requiring legal, tax or regulatory advice",
     ],
     buttonText: "Explore NRI Advisory",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80",
     tag: "Global & NRI",
   },
   {
@@ -302,6 +316,8 @@ const serviceCards: ServiceCard[] = [
       "Coordination with advocates, chartered accountants and valuers",
     ],
     buttonText: "Explore Family Enterprise Succession",
+    image:
+      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=80",
     tag: "Enterprise",
   },
 ];
@@ -942,7 +958,7 @@ export default function HomeClient() {
                   onClick={() => setActiveCard((prev) => (prev === card.number ? null : card.number))}
                   className="w-full lg:w-[460px] h-[540px] sm:h-[580px] lg:h-[600px] lg:shrink-0 rounded-2xl border border-[#B7873A]/25 bg-[#0a233d]/70 backdrop-blur-md p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden group hover:border-[#C89949] transition-all duration-300 shadow-xl cursor-pointer"
                 >
-                  {/* Optional Background Image (Card 1) */}
+                  {/* Background Image with Dark Overlay */}
                   {card.image && (
                     <div className="absolute inset-0 z-0">
                       <Image
@@ -950,9 +966,10 @@ export default function HomeClient() {
                         alt={card.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 460px"
-                        className="object-cover opacity-30 group-hover:opacity-10 transition-opacity duration-500 group-hover:scale-105 transition-transform duration-700"
+                        className="object-cover opacity-40 group-hover:opacity-20 transition-all duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#071A2E] via-[#071A2E]/85 to-transparent" />
+                      {/* Dark overlay to ensure text is crystal clear */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#061729] via-[#071A2E]/85 to-[#071A2E]/70" />
                     </div>
                   )}
 
@@ -960,27 +977,27 @@ export default function HomeClient() {
                   <div className="relative z-10 flex flex-col justify-between h-full">
                     {/* Top Watermark Number & Tag */}
                     <div className="flex items-start justify-between w-full">
-                      <div className="text-5xl sm:text-6xl lg:text-7xl font-normal text-white/20 group-hover:text-[#E0B669]/40 font-heading transition-colors duration-300 select-none">
+                      <div className="text-5xl sm:text-6xl lg:text-7xl font-normal text-white/30 group-hover:text-[#E0B669]/50 font-heading transition-colors duration-300 select-none">
                         {card.number}
                       </div>
-                      <span className="text-[11px] font-sans tracking-widest text-[#B7873A] uppercase px-3 py-1 rounded-full border border-[#B7873A]/25 bg-[#071A2E]/80 backdrop-blur-sm">
+                      <span className="text-[11px] font-sans tracking-widest text-[#E0B669] uppercase px-3 py-1 rounded-full border border-[#B7873A]/40 bg-[#071A2E]/90 backdrop-blur-md shadow-sm">
                         {card.tag}
                       </span>
                     </div>
 
                     {/* Bottom Details */}
                     <div className="flex flex-col items-start gap-2.5 mt-8 sm:mt-12 lg:mt-0">
-                      <h3 className="text-2xl sm:text-[28px] font-normal text-[#FFFFFF] font-heading leading-tight group-hover:text-[#E0B669] transition-colors duration-300">
+                      <h3 className="text-2xl sm:text-[28px] font-normal text-[#FFFFFF] font-heading leading-tight group-hover:text-[#E0B669] transition-colors duration-300 drop-shadow-sm">
                         {card.title}
                       </h3>
-                      <p className="text-sm font-medium text-[#E0B669] italic">
+                      <p className="text-sm font-medium text-[#E0B669] italic drop-shadow-sm">
                         {card.subtitle}
                       </p>
-                      <p className="text-[#E9E8E3]/70 text-xs sm:text-sm leading-relaxed line-clamp-3 mt-1">
+                      <p className="text-[#E9E8E3]/85 text-xs sm:text-sm leading-relaxed line-clamp-3 mt-1 drop-shadow-sm">
                         {card.description}
                       </p>
 
-                      <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-[#C89949] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                      <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-[#C89949] group-hover:text-[#E0B669] uppercase tracking-wider group-hover:translate-x-1 transition-all">
                         <span>View scope</span>
                         <span>→</span>
                       </div>
